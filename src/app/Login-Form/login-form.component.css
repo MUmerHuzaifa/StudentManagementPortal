@@ -1,0 +1,33 @@
+.form-container{
+    width: 50vw;
+    height: auto;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(255, 251, 251);
+    padding: 20px;
+}
+.form-body{
+    width: auto;
+    height: auto;
+    /* margin-bottom: 50px; */
+    /* border: 2px solid black; */
+ 
+}
+.checkouts{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    /* margin: auto 60% */
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #0e0e0e;
+    /* Color and thickness */
+    margin: 20px 0;
+    /* Margin above and below the line */
+  }
