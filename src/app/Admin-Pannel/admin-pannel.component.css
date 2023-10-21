@@ -1,11 +1,26 @@
-.admin-container{
+.admin-page-container{
     height: 100vh;
-    width: 100vw;
+    width: 90%;
     background-color: rgb(255, 251, 251);
+    margin: 20px auto;
+    border-radius: 5%;
 }
-/* .table{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
+button[type=action-button]{
+    /* color: orange; */
+    margin: 2px;
+    width: 6vw;
+    height: 6vh;
+    overflow: hidden;
+  
+}
+th{
+    text-align: center;
+    background-color: rgb(244, 248, 248); 
+}
+tr{
+    background-color: aqua;
+    vertical-align: middle;
+}
+td{
+    background-color: rgb(244, 248, 248);
+}

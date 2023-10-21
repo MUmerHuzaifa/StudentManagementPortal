@@ -16,10 +16,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { LoginFormComponent } from './Login-Form/login-form.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageComponent } from './Home-Page/home-page.component';
 import { ContactUsComponent } from './Contact-Us/contact-us.component';
 import { AdminPannelComponent } from './Admin-Pannel/admin-pannel.component';
 import { FormsModule } from '@angular/forms';
+import { RegisterUserComponent } from './Register-User/register-user.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FormsModule } from '@angular/forms';
     HomePageComponent,
     ContactUsComponent,
     AdminPannelComponent,
+    RegisterUserComponent,
   ],
   imports: [
     BrowserModule,

@@ -73,7 +73,10 @@
             </div>
             <div class="col-md-2">
                 <label for="validationCustom08" class="form-label">Date Of Birth</label>
-                <input type="date" class="form-control" id="validationCustom08" name="dob" ngModel required>
+                <input type="date" class="form-control" id="validationCustom08" name="dob" ngModel #dob="ngModel" required>
+                <div>
+                    <small *ngIf="dob.invalid && dob.touched">Required Field</small>
+                </div>
 
             </div>
             <div class="col-md-2">
@@ -113,14 +116,20 @@
 
             <div class="col-md-2">
                 <label for="validationCustom11" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="validationCustom11" name="zCode" ngModel required placeholder="xxxxxx">
+                <input type="text" class="form-control" id="validationCustom11" name="zCode" ngModel #zCode="ngModel" required placeholder="xxxxxx">
+                <div>
+                    <small *ngIf="zCode.invalid && zCode.touched">Required Field</small>
+                </div>
 
             </div>
            
             <div class="mb-3 col-md-6">
                 <label for="validationTextarea" class="form-label">Address</label>
-                <textarea class="form-control" id="validationTextarea" name="address" ngModel placeholder="Place your address"
-                    required></textarea>
+                <textarea class="form-control" id="validationTextarea" name="address" ngModel #address="ngModel" placeholder="Place your address"
+                    required ></textarea>
+                    <div>
+                        <small *ngIf="address.invalid && address.touched">Required Field</small>
+                    </div>
 
             </div>
             <hr>
