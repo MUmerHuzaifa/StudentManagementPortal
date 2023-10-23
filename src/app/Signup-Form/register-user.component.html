@@ -11,10 +11,8 @@
                 <input type="text" class="form-control" formControlName="fName" id="fnamee" placeholder="e.g umer">
                 <label for="fnamee">Username</label>
                 <small *ngIf="RegisterUser_RF.get('fName').hasError('required') && RegisterUser_RF.get('fName').touched">*This Field is Required</small>
-                <small *ngIf="RegisterUser_RF.get('fName').hasError('noSpaceAllowed') && RegisterUser_RF.get('fName').touched">*No Space Allowed</small>
                 <small *ngIf="RegisterUser_RF.get('fName').hasError('numericNotAllowed') && RegisterUser_RF.get('fName').touched">*No Numeric Allowed</small>
                 <small *ngIf="RegisterUser_RF.get('fName').hasError('maxlength') && RegisterUser_RF.get('fName').touched">*Maximum 10 Allowed</small>
-                
             </div>
         
             <div class="form-floating col-md-12">
