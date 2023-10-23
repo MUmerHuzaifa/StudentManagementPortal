@@ -6,46 +6,63 @@
 
     <div class="form-body">
         <hr>
-        <form class="row g-3 needs-validation" novalidate>
+        <form class="row g-3 needs-validation" [formGroup]="RegisterUser_RF" (ngSubmit)="onRegisterFormSubmit()" >
             <div class="form-floating col-md-6">
-                <input type="text" class="form-control" id="floatingInput" placeholder="e.g umer">
-                <label for="floatingInput">First Name</label>
+                <input type="text" class="form-control" formControlName="fName" id="fnamee" placeholder="e.g umer">
+                <label for="fnamee">First Name</label>
+                <small *ngIf="RegisterUser_RF.get('fName').hasError('required') && RegisterUser_RF.get('fName').touched">*This Field is Required</small>
+                <small *ngIf="RegisterUser_RF.get('fName').hasError('noSpaceAllowed') && RegisterUser_RF.get('fName').touched">*No Space Allowed</small>
+                <small *ngIf="RegisterUser_RF.get('fName').hasError('numericNotAllowed') && RegisterUser_RF.get('fName').touched">*No Numeric Allowed</small>
+                <small *ngIf="RegisterUser_RF.get('fName').hasError('maxlength') && RegisterUser_RF.get('fName').touched">*Maximum 10 Allowed</small>
+                
             </div>
             <div class="form-floating col-md-6">
-                <input type="text" class="form-control" id="floatingInput" placeholder="e.g Huzaifa">
-                <label for="floatingInput">Last Name</label>
+                <input type="text" class="form-control" formControlName="lName" id="lname" placeholder="e.g Huzaifa">
+                <label for="lname">Last Name</label>
+                <small *ngIf="RegisterUser_RF.get('lName').hasError('required') && RegisterUser_RF.get('lName').touched">*This Field is Required</small>
+                <small *ngIf="RegisterUser_RF.get('lName').hasError('noSpaceAllowed') && RegisterUser_RF.get('lName').touched">*No Space Allowed</small>
+                <small *ngIf="RegisterUser_RF.get('lName').hasError('numericNotAllowed') && RegisterUser_RF.get('lName').touched">*No Numeric Allowed</small>
+                <small *ngIf="RegisterUser_RF.get('lName').hasError('maxlength') && RegisterUser_RF.get('lName').touched">*Maximum 10 Allowed</small>
+                
             </div>
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+                <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com">
+                <label for="email">Email address</label>
+                <small *ngIf="RegisterUser_RF.get('email').hasError('required') && RegisterUser_RF.get('email').touched">*This Field is Required</small>
+                <small *ngIf="RegisterUser_RF.get('email').hasError('pattern') && RegisterUser_RF.get('email').touched">*Enter Valid Email Address</small>
+                <small *ngIf="RegisterUser_RF.get('email').hasError('noSpaceAllowed')">*No Space Allowed</small>
+
             </div>
             <div class="form-floating col-md-6">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <input type="password" class="form-control" formControlName="password" id="pass" placeholder="Password">
+                <label for="pass">Password</label>
+                <small *ngIf="RegisterUser_RF.get('password').hasError('required') && RegisterUser_RF.get('password').touched">*This Field is Required</small>
+                <small *ngIf="RegisterUser_RF.get('password').hasError('minlength')">*Enter Minimum 4 Letters</small>
+                <small *ngIf="RegisterUser_RF.get('password').hasError('maxlength')">*Enter Maximum 15 Leters</small>
+
             </div>
             <div class="form-floating col-md-6">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Re-enter Password">
-                <label for="floatingPassword">Confirm Password</label>
+                <input type="password" class="form-control" formControlName="cPassword" id="cpass" placeholder="Re-enter Password">
+                <label for="cpass">Confirm Password</label>
+                <small *ngIf="RegisterUser_RF.get('cPassword').hasError('required') && RegisterUser_RF.get('cPassword').touched">*This Field is Required</small>
+                <small *ngIf="RegisterUser_RF.get('cPassword').hasError('minlength')">*Enter Minimum 4 Letters</small>
+                <small *ngIf="RegisterUser_RF.get('cPassword').hasError('maxlength')">*Enter Maximum 15 Leters</small>
+
             </div>
             <div class="col-md-6">
                 <label class="form-label">Role</label>
-                <select class="form-select" id="validationCustom10" name="Student" >
+                <select class="form-select" formControlName="role" id="validationCustom10" name="Student" >
                     <option>Admin</option>
                     <option>Student</option>
                 </select>
+                <small *ngIf="RegisterUser_RF.get('role').hasError('required') && RegisterUser_RF.get('role').touched">*This Field is Required</small>
             </div>
+            <hr>
 
-        </form>
-        <hr>
-        <div class="checkouts">
-           
-            <!-- <div class="col-md-6"> -->
-            <button class="btn btn-success" type="submit" style="margin-top: 20px;">Register</button>
-            <!-- </div> -->
-
+            <div class="checkouts">
+                <button class="btn btn-success" type="submit" value="Submit" style="margin-top: 20px;">Login</button>
         </div>
-
-
-    </div>
+        </form>
+        </div>
 
 </div>

@@ -3,16 +3,34 @@
     width: 90%;
     background-color: rgb(255, 251, 251);
     margin: 20px auto;
-    border-radius: 5%;
+    border-radius: 30px;
+}
+#buttons-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 button[type=action-button]{
     /* color: orange; */
     margin: 2px;
-    width: 6vw;
-    height: 6vh;
-    overflow: hidden;
-  
+    width: 3vw;
+    height: 5vh;
+    font-size: x-small;
+    line-height:normal;   
 }
+hr {
+    border: none;
+    /* width: 60%; */
+    border-top: 2px solid #0e0e0e;
+    /* Color and thickness */
+    margin: 20px 0;
+    /* Margin above and below the line */
+  }
 th{
     text-align: center;
     background-color: rgb(244, 248, 248); 
@@ -24,3 +42,80 @@ tr{
 td{
     background-color: rgb(244, 248, 248);
 }
+
+.admin-info {
+    display: flex;
+    flex-direction: row;
+    /* background-color: rgb(249, 246, 246); */
+    /* background-color: rgb(237, 235, 232); */
+    background-color: rgb(244, 248, 248);
+    height: 40vh;
+    width: 100%;
+  
+  }
+  
+  .pic-Role {
+    /* border: 1px solid orange; */
+    height: 100%;
+    width: 30%;
+    padding: 10px;
+    background-color: rgb(244, 248, 248);
+  
+  }
+  
+  .user-pic {
+    height: 70%;
+    width: 80%;
+    margin: 0px auto;
+    /* background-color: rgb(249, 246, 246); */
+    background-color: rgb(244, 248, 248);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .profile-pic {
+    border-radius: 50%;
+    max-width: 100%;
+    /* Ensure the image doesn't exceed the div's width */
+    max-height: 100%;
+    /* Ensure the image doesn't exceed the div's height */
+    object-fit: cover;
+  }
+  
+  .user-role {
+    height: 20%;
+    width: 60%;
+    margin: 10px auto;
+    background-color: rgb(254, 254, 254);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  .personal-details {
+    /* border: 1px solid orange; */
+    height: 100%;
+    width: 70%;
+    /* padding: 10px; */
+    margin: 20px auto;
+    word-wrap: break-word; /* Wrap long words to the next line */
+  }
+  
+  .user-info {
+    height: 15%;
+    width: 50%;
+    /* border: 1px solid orange; */
+    background-color: rgb(254, 254, 254);
+    border-radius: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+  }
+  

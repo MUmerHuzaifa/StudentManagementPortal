@@ -1,11 +1,13 @@
 .form-container{
-    width: 50vw;
+    width: 40vw;
     height: auto;
     margin: 20px auto;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+border-radius: 30px;
     /* background-color: rgb(237, 235, 232); */
     background-color: rgb(244, 248, 248);
 
@@ -44,3 +46,16 @@ hr {
     margin: 20px 0;
     /* Margin above and below the line */
   }
+
+  select.ng-invalid.ng-touched,input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+small{
+    color: red;
+}
+input[type='text'].ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+select[type='text'].ng-invalid.ng-touched{
+    border: 1px solid red;
+}

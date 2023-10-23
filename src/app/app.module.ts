@@ -19,7 +19,7 @@ import { LoginFormComponent } from './Login-Form/login-form.component';
 import { HomePageComponent } from './Home-Page/home-page.component';
 import { ContactUsComponent } from './Contact-Us/contact-us.component';
 import { AdminPannelComponent } from './Admin-Pannel/admin-pannel.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterUserComponent } from './Register-User/register-user.component';
 
 @NgModule({
@@ -46,7 +46,8 @@ import { RegisterUserComponent } from './Register-User/register-user.component';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
