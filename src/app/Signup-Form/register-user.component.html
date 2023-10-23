@@ -8,18 +8,18 @@
         <hr>
         <form class="row g-3 needs-validation" [formGroup]="RegisterUser_RF" (ngSubmit)="onRegisterFormSubmit()" >
             <div class="form-floating col-md-12">
-                <input type="text" class="form-control" formControlName="fName" id="fnamee" placeholder="e.g umer">
+                <input type="text" class="form-control" formControlName="userName" id="fnamee" placeholder="e.g umer">
                 <label for="fnamee">Username</label>
-                <small *ngIf="RegisterUser_RF.get('fName').hasError('required') && RegisterUser_RF.get('fName').touched">*This Field is Required</small>
-                <small *ngIf="RegisterUser_RF.get('fName').hasError('numericNotAllowed') && RegisterUser_RF.get('fName').touched">*No Numeric Allowed</small>
-                <small *ngIf="RegisterUser_RF.get('fName').hasError('maxlength') && RegisterUser_RF.get('fName').touched">*Maximum 10 Allowed</small>
+                <small *ngIf="RegisterUser_RF.get('userName').hasError('required') && RegisterUser_RF.get('userName').touched">*This Field is Required</small>
+                <small *ngIf="RegisterUser_RF.get('userName').hasError('numericNotAllowed')">*No Numeric Allowed</small>
+                <small *ngIf="RegisterUser_RF.get('userName').hasError('maxlength')">*Maximum 30 Letters Allowed</small>
             </div>
         
             <div class="form-floating col-md-12">
                 <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com">
                 <label for="email">Email address</label>
                 <small *ngIf="RegisterUser_RF.get('email').hasError('required') && RegisterUser_RF.get('email').touched">*This Field is Required</small>
-                <small *ngIf="RegisterUser_RF.get('email').hasError('pattern') && RegisterUser_RF.get('email').touched">*Enter Valid Email Address</small>
+                <small *ngIf="RegisterUser_RF.get('email').hasError('pattern')">*Enter Valid Email Address</small>
                 <small *ngIf="RegisterUser_RF.get('email').hasError('noSpaceAllowed')">*No Space Allowed</small>
 
             </div>
