@@ -12,7 +12,6 @@ import {
 } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {NgIf} from '@angular/common';
-import { DatePickerComponent } from '../date-picker/date-picker.component';
 
 @Component({
   selector: 'app-signup-form',

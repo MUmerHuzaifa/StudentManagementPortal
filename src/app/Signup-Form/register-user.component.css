@@ -1,16 +1,11 @@
 .form-container{
-    width: 40vw;
+    width: 35vw;
     height: auto;
     margin: 20px auto;
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-border-radius: 30px;
+    border-radius: 30px;
     /* background-color: rgb(237, 235, 232); */
     background-color: rgb(244, 248, 248);
-
     padding: 20px;
 }
 .form-title{
@@ -26,6 +21,10 @@ border-radius: 30px;
 .form-body{
     width: auto;
     height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
     /* margin-bottom: 50px; */
     /* border: 2px solid black; */
  
@@ -47,7 +46,7 @@ hr {
     /* Margin above and below the line */
   }
 
-  select.ng-invalid.ng-touched,input.ng-invalid.ng-touched{
+select.ng-invalid.ng-touched,input.ng-invalid.ng-touched{
     border: 1px solid red;
 }
 small{
