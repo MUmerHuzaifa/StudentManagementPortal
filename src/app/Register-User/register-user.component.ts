@@ -18,7 +18,7 @@ export class RegisterUserComponent implements OnInit {
       email: new FormControl(null,[Validators.required,noSpaceAllowed,Validators.pattern(emailPattern)]),
       password: new FormControl(null,[Validators.required,Validators.minLength(4),Validators.maxLength(15)]),
       cPassword: new FormControl(null,[Validators.required,Validators.minLength(4),Validators.maxLength(15)]),
-      role: new FormControl(null,[Validators.required])
+      role: new FormControl(null,[Validators.required]),
     })
   }
 

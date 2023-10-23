@@ -39,4 +39,10 @@ export const trimSpace = (control: FormControl) => {
     return null;
   };
 
+  export function passwordMatchValidator(control: FormControl) {
+    const password = control.get('password').value;
+    const confirmPassword = control.get('confirmPassword').value;
+  
+    return password === confirmPassword ? null : { passwordMismatch: true };
+  }
   // Patterns are defines ineach Component depending upon their use

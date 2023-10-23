@@ -47,6 +47,8 @@
                 <small *ngIf="RegisterUser_RF.get('cPassword').hasError('required') && RegisterUser_RF.get('cPassword').touched">*This Field is Required</small>
                 <small *ngIf="RegisterUser_RF.get('cPassword').hasError('minlength')">*Enter Minimum 4 Letters</small>
                 <small *ngIf="RegisterUser_RF.get('cPassword').hasError('maxlength')">*Enter Maximum 15 Leters</small>
+                <!-- <small *ngIf="RegisterUser_RF.get('cPassword').hasError('passwordMatchValidator')">*Enter Maximum 15 Leters</small> -->
+
 
             </div>
             <div class="col-md-6">
@@ -60,7 +62,7 @@
             <hr>
 
             <div class="checkouts">
-                <button class="btn btn-success" type="submit" value="Submit" style="margin-top: 20px;">Login</button>
+                <button class="btn btn-success" type="submit" value="Submit" [disabled]="RegisterUser_RF.invalid" style="margin-top: 20px;">Register</button>
         </div>
         </form>
         </div>
