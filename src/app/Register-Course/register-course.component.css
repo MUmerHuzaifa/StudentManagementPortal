@@ -5,13 +5,10 @@
   flex-direction: column;
   box-sizing: border-box;
   overflow: hidden;
-  padding: 20px;
   /* margin: 20px; */
   position: absolute;
   background-color: rgb(255, 255, 255);
-
-
-  /* margin: 0px auto; */
+  margin: 20px auto;
 
 }
 
@@ -150,4 +147,8 @@ input.ng-invalid.ng-touched{
 }
 small{
   color: red;
+}
+#submit-course{
+  width: auto;
+  height: 20%;
 }

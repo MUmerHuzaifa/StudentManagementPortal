@@ -4,8 +4,8 @@ import { noNumericAllowed, noSpaceAllowed } from '../Validators/noSpaceAllowed.v
 
 @Component({
   selector: 'app-register-user',
-  templateUrl: './register-user.component.html',
-  styleUrls: ['./register-user.component.css']
+  templateUrl: './signup-form.component.html',
+  styleUrls: ['./signup-form.component.css']
 })
 export class RegisterUserComponent implements OnInit {
   RegisterUser_RF: FormGroup;

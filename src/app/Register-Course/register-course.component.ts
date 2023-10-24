@@ -15,8 +15,8 @@ import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-signup-form',
-  templateUrl: './signup-form.component.html',
-  styleUrls: ['./signup-form.component.css'],
+  templateUrl: './register-course.component.html',
+  styleUrls: ['./register-course.component.css'],
 })
 export class SignupFormComponent {
   defaultState='Punjab'

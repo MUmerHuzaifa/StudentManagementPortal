@@ -10,11 +10,9 @@
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" id="floatingInput" formControlName="email" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
-            <small *ngIf="Login_RF.get('email').errors?.['required'] && Login_RF.get('email').touched">*This Field id Required</small>
+            <small *ngIf="Login_RF.get('email').errors?.['required'] && Login_RF.get('email').touched">*This Field is Required</small>
             <small *ngIf="Login_RF.get('email').errors?.['noSpaceAllowed']">*No Space Allowed</small>
             <small *ngIf="Login_RF.get('email').hasError('pattern')">*Invalid Email Format</small>
-
-
 
             </div>
             <div class="form-floating">
@@ -22,11 +20,10 @@
                 <label for="floatingPassword">Password</label>
                 <small *ngIf="Login_RF.get('password').errors?.['required'] && Login_RF.get('password').touched">*This Field id Required</small>
             </div>
-       
 
         <hr>
         <div class="checkouts">
-            <p style="text-align: right;padding: 10px;"><a href="#" class="link-danger">Forgot Password ?</a></p>
+            <p style="text-align: right;padding: 10px;"><a routerLink="/forgot" class="link-danger">Forgot Password ?</a></p>
 
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -34,24 +31,7 @@
                     Remember Me
                 </label>
             </div>
-
-            <!-- <div formArrayName="skills">
-                <div *ngFor="let control of Login_RF.get('skills')['controls']; let i = index">
-                    <input type="text" class="form-control" formControlName="{{i}}">
-                    <button type="button" (click)="deleteSkills(i)">Delete</button>
-
-                </div>
-                
-              </div>
-                   
-       
-            <button type="submit" (click)="addSkills()">Add</button> -->
-
-
-            <!-- <div class="col-md-6"> -->
             <button class="btn btn-success" type="submit" value="Submit" [disabled]="Login_RF.invalid" style="margin-top: 20px;">Login</button>
-            <!-- </div> -->
-        
         </div>
     </form>
 
