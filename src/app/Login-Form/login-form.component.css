@@ -1,0 +1,58 @@
+.form-container{
+    width: 35vw;
+    position: relative;
+    height: auto;
+    margin: 0px auto;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 30px;
+    /* background-color: rgb(255, 251, 251); */
+    background-color: rgb(244, 248, 248);
+
+}
+.form-title{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#registerLink{
+    margin-top: 15px;
+}
+.form-body{
+    width: auto;
+    height: auto;
+    padding: 30px;
+    /* margin-bottom: 50px; */
+    /* border: 2px solid black; */
+ 
+}
+.checkouts{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    /* margin: auto 60% */
+}
+
+hr {
+    border: none;
+    /* width: 60%; */
+    border-top: 2px solid #0e0e0e;
+    /* Color and thickness */
+    margin: 20px 0;
+    /* Margin above and below the line */
+  }
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+small{
+    color: red;
+}
+input[type='text'].ng-invalid.ng-touched{
+    border: 1px solid red;
+}

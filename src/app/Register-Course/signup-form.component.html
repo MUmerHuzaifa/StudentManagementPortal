@@ -1,0 +1,192 @@
+<div class="form-container">
+
+    <div class="form-body">
+        <div class="form-title">
+            <h2 id="registration">Course Registration</h2>
+        </div>
+        <hr>  
+        <form class="row g-3 needs-validation" (ngSubmit)="onSubmit(myform)" #myform="ngForm">
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">First name</label>
+                <input type="text" class="form-control" id="validationCustom01" name="fName" ngModel required #fname="ngModel" placeholder="First Name" required>
+                <div>
+                    <small *ngIf="fname.invalid && fname.touched">Required Field</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="validationCustom02" name="lName" ngModel required #lname="ngModel" placeholder="Last Name" >
+                <div>
+                    <small *ngIf="lname.invalid && lname.touched">Required Field</small>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="validationCustom03" class="form-label">Registration Number</label>
+                <input type="text" class="form-control" id="validationCustom03" name="regId" [ngModel]="default" disabled="disabled"
+                    required>
+
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom04" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="validationCustom04" name="emailAddress" ngModel required #email="ngModel" placeholder="abc@xyz.etc" >
+                <div>
+                    <small *ngIf="email.invalid && email.touched">Required Field</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom05" class="form-label">Password</label>
+                <input type="password" class="form-control" id="validationCustom05" name="password" ngModel required #password="ngModel" placeholder="Strong@123" >
+                <div>
+                    <small *ngIf="password.invalid && password.touched">Required Field</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom06" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="validationCustom06" name="cPassword" ngModel required #cpassword="ngModel" placeholder="Type Password Again">
+                <div>
+                    <small *ngIf="cpassword.invalid && cpassword.touched">Required Field</small>
+                </div>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom07" class="form-label">Contact Number</label>
+                <input type="text" class="form-control" id="validationCustom07" name="cNumber" ngModel required #cnumber="ngModel" placeholder=" 03xx-xxxxxxx">
+                <div>
+                    <small *ngIf="cnumber.invalid && cnumber.touched">Required Field</small>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <label for="validationCustom08" class="form-label">Date Of Birth</label>
+                <input type="date" class="form-control" id="validationCustom08" name="dob" ngModel #dob="ngModel" required>
+                <div>
+                    <small *ngIf="dob.invalid && dob.touched">Required Field</small>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <label for="validationCustom09" class="form-label">State</label>
+                <select class="form-select" id="validationCustom09" name="state" [ngModel]="defaultState">
+                    <option>Punjab</option>
+                    <option>Sindth</option>
+                    <option>Balochistan</option>
+                    <option>KPK</option>
+                    <option>Gilget</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a valid state.
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label for="validationCustom10" class="form-label">City</label>
+                <select class="form-select" id="validationCustom10" name="city" [ngModel]="defaultCity" ngModel required >
+                    <option>Lahore</option>
+                    <option>Karachi</option>
+                    <option>Islamabad</option>
+                    <option>Multan</option>
+                    <option>Muree</option>
+                    <option>Pattoki</option>
+                    <option>Sahiwal</option>
+                    <option>Attock</option>
+                    <option>Sialkot</option>
+                    <option>Quetta</option>
+                    <option>Peshawer</option>
+                    <option>Gilget</option>
+                    <option>Haiderabad</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a valid state.
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <label for="validationCustom11" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="validationCustom11" name="zCode" ngModel #zCode="ngModel" required placeholder="xxxxxx">
+                <div>
+                    <small *ngIf="zCode.invalid && zCode.touched">Required Field</small>
+                </div>
+
+            </div>
+           
+            <div class="mb-3 col-md-6">
+                <label for="validationTextarea" class="form-label">Address</label>
+                <textarea class="form-control" id="validationTextarea" name="address" ngModel #address="ngModel" placeholder="Place your address"
+                    required ></textarea>
+                    <div>
+                        <small *ngIf="address.invalid && address.touched">Required Field</small>
+                    </div>
+
+            </div>
+            <hr>
+
+            <div id="form-buttons" class="col-12">
+                <div class="col-md-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" name="tConditions" ngModel required>
+                        <label class="form-check-label" for="invalidCheck">
+                            Agree to terms and conditions <span><a href="#" class="link-danger">Click here to Read</a></span>
+                        </label>
+                    </div>
+                    
+                <div class="col-md-4" style="display: flex;justify-content: right;">
+                    <button class="btn btn-primary" type="submit" value="Submit" style="margin-top: 20px;">Submit form</button>
+                </div>
+                </div>
+        
+            </div>
+           
+        </form>
+
+        <!-- <div id="firstName">
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="Enter your first name" name="firstName">
+                </mat-form-field>
+            </div>
+
+            <div id="lastName">
+                <mat-form-field>
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="Enter your first name" name="firstName">
+                </mat-form-field>
+            </div>
+
+            <mat-form-field>
+                <mat-label>Email Address</mat-label>
+                <input matInput type="email" placeholder="Enter your email" name="email">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Enter your password" name="password">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" placeholder="Confirm your password" name="confirmPassword">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Program/Major</mat-label>
+                <mat-select name="program">
+                    <mat-option value="option1">Option 1</mat-option>
+                    <mat-option value="option2">Option 2</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Date of Birth</mat-label>
+                <input matInput type="date" name="dob">
+            </mat-form-field>
+
+            <div class="form-button">
+                <button mat-raised-button color="primary" type="submit">Register</button>
+            </div> -->
+        <!-- </form> -->
+
+    </div>
+
+</div>

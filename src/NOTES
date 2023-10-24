@@ -1,0 +1,20 @@
+/* 
+1) How to create a Component 
+First i created component with name in app under src 
+Then i created name.component.ts file
+ { in this ts file, I created class, then add decorator 
+    { in decorator i added three things 
+        ( selector for html tag, html file path , and css file path )
+    }
+    then or before i imported compoenent from './@angular/core'
+}
+i created html file to give path to decorator with name - name.component.html
+i added html tag to app.component.html file in div tag
+i added my class of NameComponent to app.module.ts file under @NgModule section [this will tell angular that this is a component]
+
+
+
+
+
+
+*/
