@@ -8,7 +8,7 @@
         <hr>
         <form class="row g-3 needs-validation" [formGroup]="RegisterUser_RF" (ngSubmit)="onRegisterFormSubmit()" >
             <div class="form-floating col-md-12">
-                <input type="text" class="form-control" formControlName="userName" id="fnamee" placeholder="e.g umer">
+                <input type="text" class="form-control" formControlName="userName" id="fnamee" placeholder="e.g umer" [(ngModel)]="registrationData.username">
                 <label for="fnamee">Username</label>
                 <small *ngIf="RegisterUser_RF.get('userName').hasError('required') && RegisterUser_RF.get('userName').touched">*This Field is Required</small>
                 <small *ngIf="RegisterUser_RF.get('userName').hasError('numericNotAllowed')">*No Numeric Allowed</small>
@@ -16,7 +16,7 @@
             </div>
         
             <div class="form-floating col-md-12">
-                <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com">
+                <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com" [(ngModel)]="registrationData.email">
                 <label for="email">Email address</label>
                 <small *ngIf="RegisterUser_RF.get('email').hasError('required') && RegisterUser_RF.get('email').touched">*This Field is Required</small>
                 <small *ngIf="RegisterUser_RF.get('email').hasError('pattern')">*Enter Valid Email Address</small>
@@ -24,7 +24,7 @@
 
             </div>
             <div class="form-floating col-md-12">
-                <input type="password" class="form-control" formControlName="password" id="pass" placeholder="Password">
+                <input type="password" class="form-control" formControlName="password" id="pass" placeholder="Password" [(ngModel)]="registrationData.password">
                 <label for="pass">Password</label>
                 <small *ngIf="RegisterUser_RF.get('password').hasError('required') && RegisterUser_RF.get('password').touched">*This Field is Required</small>
                 <small *ngIf="RegisterUser_RF.get('password').hasError('minlength')">*Enter Minimum 4 Letters</small>
@@ -32,18 +32,18 @@
 
             </div>
             <div class="form-floating col-md-12">
-                <input type="password" class="form-control" formControlName="cPassword" id="cpass" placeholder="Re-enter Password">
+                <input type="password" class="form-control" formControlName="cPassword" id="cpass" placeholder="Re-enter Password" [(ngModel)]="registrationData.confirmPassword">
                 <label for="cpass">Confirm Password</label>
                 <small *ngIf="RegisterUser_RF.get('cPassword').hasError('required') && RegisterUser_RF.get('cPassword').touched">*This Field is Required</small>
                 <small *ngIf="RegisterUser_RF.get('cPassword').hasError('minlength')">*Enter Minimum 4 Letters</small>
                 <small *ngIf="RegisterUser_RF.get('cPassword').hasError('maxlength')">*Enter Maximum 15 Leters</small>
-                <!-- <small *ngIf="RegisterUser_RF.get('cPassword').hasError('passwordMatchValidator')">*Enter Maximum 15 Leters</small> -->
+                
 
 
             </div>
             <div class="col-md-6">
                 <label class="form-label">Role</label>
-                <select class="form-select" formControlName="role" id="validationCustom10" name="Student" >
+                <select class="form-select" formControlName="role" id="validationCustom10" name="Student"  [(ngModel)]="registrationData.role">
                     <option>Admin</option>
                     <option>Student</option>
                 </select>

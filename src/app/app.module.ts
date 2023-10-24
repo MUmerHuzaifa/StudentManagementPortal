@@ -12,7 +12,8 @@ import { SignupFormComponent } from './Register-Course/signup-form.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { LoginFormComponent } from './Login-Form/login-form.component';
-import { HomePageComponent } from './Home-Page/home-page.component';
+
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ContactUsComponent } from './Contact-Us/contact-us.component';
 import { AdminPannelComponent } from './Admin-Pannel/admin-pannel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,7 +27,6 @@ import { ForgotPasswordComponent } from './Forgot-Password/forgot-password.compo
     NavbarComponent,
     SignupFormComponent,
     LoginFormComponent,
-    HomePageComponent,
     ContactUsComponent,
     AdminPannelComponent,
     RegisterUserComponent,
@@ -42,7 +42,9 @@ import { ForgotPasswordComponent } from './Forgot-Password/forgot-password.compo
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+     HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
