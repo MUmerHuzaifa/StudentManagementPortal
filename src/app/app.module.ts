@@ -19,6 +19,7 @@ import { AdminPannelComponent } from './Admin-Pannel/admin-pannel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterUserComponent } from './Signup-Form/register-user.component';
 import { ForgotPasswordComponent } from './Forgot-Password/forgot-password.component';
+import { AssigntaskComponent } from './assigntask/assigntask.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ForgotPasswordComponent } from './Forgot-Password/forgot-password.compo
     AdminPannelComponent,
     RegisterUserComponent,
     ForgotPasswordComponent,
+    AssigntaskComponent,
   ],
   imports: [
     BrowserModule,

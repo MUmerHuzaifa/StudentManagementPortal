@@ -8,7 +8,7 @@
         <hr>
         <form class="row g-3 needs-validation" [formGroup]="Login_RF" (ngSubmit)="onFormSubmitted()">
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" formControlName="email" placeholder="name@example.com">
+                <input type="email" class="form-control" id="floatingInput" formControlName="email" placeholder="name@example.com" [(ngModel)]="registration.email">
                 <label for="floatingInput">Email address</label>
             <small *ngIf="Login_RF.get('email').errors?.['required'] && Login_RF.get('email').touched">*This Field id Required</small>
             <small *ngIf="Login_RF.get('email').errors?.['noSpaceAllowed']">*No Space Allowed</small>
@@ -18,7 +18,7 @@
 
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" formControlName="password" placeholder="Password">
+                <input type="password" class="form-control" id="floatingPassword" formControlName="password" placeholder="Password" [(ngModel)]="registration.password">
                 <label for="floatingPassword">Password</label>
                 <small *ngIf="Login_RF.get('password').errors?.['required'] && Login_RF.get('password').touched">*This Field id Required</small>
             </div>
@@ -35,22 +35,16 @@
                 </label>
             </div>
 
-            <!-- <div formArrayName="skills">
-                <div *ngFor="let control of Login_RF.get('skills')['controls']; let i = index">
-                    <input type="text" class="form-control" formControlName="{{i}}">
-                    <button type="button" (click)="deleteSkills(i)">Delete</button>
-
-                </div>
-                
-              </div>
-                   
-       
-            <button type="submit" (click)="addSkills()">Add</button> -->
 
 
-            <!-- <div class="col-md-6"> -->
+
+
+            
+
+            
+
             <button class="btn btn-success" type="submit" value="Submit" [disabled]="Login_RF.invalid" style="margin-top: 20px;">Login</button>
-            <!-- </div> -->
+           
         
         </div>
     </form>

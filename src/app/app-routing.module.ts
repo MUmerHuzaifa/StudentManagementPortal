@@ -5,16 +5,12 @@ import { SignupFormComponent } from './Register-Course/signup-form.component';
 import { AdminPannelComponent } from './Admin-Pannel/admin-pannel.component';
 import { ContactUsComponent } from './Contact-Us/contact-us.component';
 import { RegisterUserComponent } from './Signup-Form/register-user.component';
+import { AssigntaskComponent } from './assigntask/assigntask.component';
 
 
 const routes: Routes = [
 
-   
-   
-
-
-
-
+  
 
   {
     path :'login',
@@ -26,14 +22,14 @@ const routes: Routes = [
     path :'courseregister',
     component : SignupFormComponent
   },
+  {
+    path :'assigntask',
+    component : AssigntaskComponent
+  },
 
   {
     path :'admin',
     component : AdminPannelComponent
-  },
-  {
-    path :'contact',
-    component : ContactUsComponent
   },
   {
     path :'register',
