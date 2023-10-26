@@ -1,7 +1,3 @@
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -9,10 +5,7 @@ import { AppComponent } from './app.component';
 import { ContainerComponent } from './Container/container.component';
 import { NavbarComponent } from './Navbar/navbar.component';
 import { SignupFormComponent } from './Register-Course/signup-form.component';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
 import { LoginFormComponent } from './Login-Form/login-form.component';
-
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ContactUsComponent } from './Contact-Us/contact-us.component';
 import { AdminPannelComponent } from './Admin-Pannel/admin-pannel.component';
@@ -20,6 +13,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterUserComponent } from './Signup-Form/register-user.component';
 import { ForgotPasswordComponent } from './Forgot-Password/forgot-password.component';
 import { AssigntaskComponent } from './assigntask/assigntask.component';
+import { CreateNewPasswordComponent } from './Create-New-Password/create-new-password.component';
+import { Role_Admin } from './ProtectiveRouting/Admin-Guard.service';
+import { AuthorizedUsers } from './ProtectiveRouting/Authorization.service';
+import { Role_Student } from './ProtectiveRouting/Student-Guard.service';
+import { Role_ResetSuccessful } from './ProtectiveRouting/PassResetSucc.service';
 
 @NgModule({
   declarations: [
@@ -33,22 +31,17 @@ import { AssigntaskComponent } from './assigntask/assigntask.component';
     RegisterUserComponent,
     ForgotPasswordComponent,
     AssigntaskComponent,
+    CreateNewPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatSlideToggleModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
     FormsModule,
     ReactiveFormsModule,
      HttpClientModule,
     
   ],
-  providers: [],
+  providers: [Role_Admin,Role_Student,Role_ResetSuccessful,AuthorizedUsers],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
