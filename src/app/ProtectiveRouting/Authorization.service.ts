@@ -1,6 +1,7 @@
 export class AuthorizedUsers{
-    loggedIn : boolean = false;
+    loggedIn : boolean = true;
     studentIn : boolean = true;
+    newPassword : boolean = false;
     addminLogin(){
         this.loggedIn=true;
     }
@@ -18,5 +19,8 @@ export class AuthorizedUsers{
     }
     IsStudentAuthenticated(){
         return this.studentIn
+    }
+    IsPasswordResetSuccessfully(){
+        return this.newPassword
     }
 }

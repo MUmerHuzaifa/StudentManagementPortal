@@ -10,51 +10,51 @@ import { CreateNewPasswordComponent } from './Create-New-Password/create-new-pas
 import { HomePageComponent } from './Home-Page/home-page.component';
 import { Role_Admin } from './ProtectiveRouting/Admin-Guard.service';
 import { Role_Student } from './ProtectiveRouting/Student-Guard.service';
+import { Role_ResetSuccessful } from './ProtectiveRouting/PassResetSucc.service';
 
 
 const routes: Routes = [
 
   {
-    path :'login',
-    component : LoginFormComponent
+    path: 'login',
+    component: LoginFormComponent
   },
-  
-  
   {
-    path :'courseregister',
-    component : SignupFormComponent,
-    canActivate : [Role_Student]
-
+    path: 'courseregister',
+    component: SignupFormComponent,
+    canActivate: [Role_Student]
   },
   {
     path: 'home',
     component: HomePageComponent,
-    canActivate : [Role_Student]
+    canActivate: [Role_Student]
   },
   {
-    path :'admin',
-    component : AdminPannelComponent,
-    canActivate : [Role_Admin]
-    
+    path: 'admin',
+    component: AdminPannelComponent,
+    canActivate: [Role_Admin]
+
   },
   {
-    path :'contact',
-    component : ContactUsComponent
+    path: 'contact',
+    component: ContactUsComponent
   },
   {
-    path :'register',
-    component : RegisterUserComponent,
+    path: 'register',
+    component: RegisterUserComponent,
   },
   {
     path: 'forgot',
-    component: ForgotPasswordComponent, 
+    component: ForgotPasswordComponent,
   },
   {
+
     path: 'newpassword',
-    component: CreateNewPasswordComponent, 
+    component: CreateNewPasswordComponent,
+    canActivate : [Role_ResetSuccessful]
 
   }
-  
+
 ];
 
 @NgModule({

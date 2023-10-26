@@ -16,6 +16,7 @@ import { CreateNewPasswordComponent } from './Create-New-Password/create-new-pas
 import { Role_Admin } from './ProtectiveRouting/Admin-Guard.service';
 import { AuthorizedUsers } from './ProtectiveRouting/Authorization.service';
 import { Role_Student } from './ProtectiveRouting/Student-Guard.service';
+import { Role_ResetSuccessful } from './ProtectiveRouting/PassResetSucc.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { Role_Student } from './ProtectiveRouting/Student-Guard.service';
      HttpClientModule,
     
   ],
-  providers: [Role_Admin,Role_Student,AuthorizedUsers],
+  providers: [Role_Admin,Role_Student,Role_ResetSuccessful,AuthorizedUsers],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
