@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class RegisterUserComponent implements OnInit {
   RegisterUser_RF: FormGroup;
+  userId = this.apiService.getLoggedInUserId();
+ 
 
   registrationData = {
     email: '',
@@ -45,16 +47,19 @@ export class RegisterUserComponent implements OnInit {
     response => {
       console.log('Registration successful!', response);
       alert("Registration sucessful")
-      this.router.navigate(['login'])
-      
+      this.router.navigate(['login']) 
     },
     error => {
       console.error('Registration failed:', error);
       
     }
   );
+  
 
 };
+
+
+
 
 
 

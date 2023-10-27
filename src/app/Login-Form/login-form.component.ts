@@ -34,6 +34,16 @@ this.apiService.loginUser(this.registration).subscribe(
   response => {
     console.log('login successful!', response);
     alert("login sucessful")
+    this.apiService.getUserRole().subscribe(
+      role => {
+        console.log('User Role:', role);
+       
+      },
+      error => {
+        console.error('Error fetching user role:', error);
+       
+      }
+    );
     this.router.navigate(['admin'])
     
   },
@@ -47,5 +57,7 @@ this.apiService.loginUser(this.registration).subscribe(
   }
 );
 }
+
+
 
 }

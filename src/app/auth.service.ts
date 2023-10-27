@@ -21,7 +21,14 @@ export class AuthService {
 
   registerUser(data: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/register`, data)
-    .pipe(
+    
+  }
+  getLoggedInUserId(): number | null {
+    return this.loggedInUserId;
+  }
+
+  loginUser(data:any): Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/login`,data).pipe(
       
       map(response => {
         if (response && response.userId) {
@@ -31,16 +38,13 @@ export class AuthService {
       })
     );
   }
-  getLoggedInUserId(): number | null {
-    return this.loggedInUserId;
-  }
 
-  loginUser(data:any): Observable<any>{
-    return this.http.post<any>(`${this.apiUrl}/login`,data)
-  }
-
-  getUserRole(userId: number): Observable<string> {
-    return this.http.get<any>(`${this.apiUrl}/${userId}/role`).pipe(
+  getUserRole(): Observable<string> {
+    if (!this.loggedInUserId) {
+      throw new Error('User not logged in'); 
+    }
+  
+    return this.http.get<any>(`${this.apiUrl}/${this.loggedInUserId}/role`).pipe(
       map(response => {
         if (response && response.role) {
           return response.role; 
@@ -49,6 +53,7 @@ export class AuthService {
       })
     );
   }
+  
 
 
   
