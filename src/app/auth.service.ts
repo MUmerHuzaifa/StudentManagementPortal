@@ -55,6 +55,11 @@ export class AuthService {
   }
   
 
+  getUserData(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/getusers`);
+  }
+}
+
 
   
-}
+

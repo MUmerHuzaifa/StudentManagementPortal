@@ -37,7 +37,6 @@ this.apiService.loginUser(this.registration).subscribe(
     this.apiService.getUserRole().subscribe(
       role => {
         console.log('User Role:', role);
-       
       },
       error => {
         console.error('Error fetching user role:', error);
