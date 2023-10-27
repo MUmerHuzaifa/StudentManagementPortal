@@ -8,13 +8,13 @@
         <form class="row g-3 needs-validation" [formGroup]="RegisterCourse_RF" (ngSubmit)="onSubmit()">
             <div class="col-md-4">
                 <label for="validationCustom01" class="form-label">Course Id</label>
-                <input type="number" class="form-control" id="validationCustom01" name="CourseId" disabled placeholder="CSC-104" required>
+                <input type="number" class="form-control" id="validationCustom01" name="CourseId" disabled placeholder="CSC-104" required   [(ngModel)]="Courseregistration.CourseId">
        
             </div>
  
             <div class="col-md-4">
                 <label for="cname" class="form-label">Course Name</label>
-                <input type="text" class="form-control" formControlName="CourseName" id="cname" placeholder="e.g umer" >
+                <input type="text" class="form-control" formControlName="CourseName" id="cname" placeholder="e.g umer" [(ngModel)]="Courseregistration.courseName">
                 <small *ngIf="RegisterCourse_RF.get('CourseName').hasError('required') && RegisterCourse_RF.get('CourseName').touched">*This Field is Required</small>
                 <small *ngIf="RegisterCourse_RF.get('CourseName').hasError('noSpaceAllowed')">*No Space Allowed</small>
                 <small *ngIf="RegisterCourse_RF.get('CourseName').hasError('numericNotAllowed')">*No Numeric Allowed</small>
@@ -24,7 +24,7 @@
  
             <div class="col-md-4">
                 <label for="chour" class="form-label">Credit Hours</label>
-                <input type="text" class="form-control" formControlName="CreditHour" id="chour" placeholder="e.g umer" >
+                <input type="text" class="form-control" formControlName="CreditHour" id="chour" placeholder="e.g umer" [(ngModel)]="Courseregistration.creditHourse">
                 <small *ngIf="RegisterCourse_RF.get('CreditHour').hasError('required') && RegisterCourse_RF.get('CreditHour').touched">*This Field is Required</small>
                 <small *ngIf="RegisterCourse_RF.get('CreditHour').hasError('noSpaceAllowed')">*No Space Allowed</small>
                 <small *ngIf="RegisterCourse_RF.get('CreditHour').hasError('noAlphabetsAllowed')">*No Alphabets Allowed</small>
@@ -35,7 +35,7 @@
             <div class="col-md-2">
                 <label for="validationCustom09" class="form-label">Section</label>
                 <select class="form-select" id="validationCustom09" name="Section" ngModel required
-                #Section="ngModel">
+                #Section="ngModel"  [(ngModel)]="Courseregistration.section">
                     <option>Section A</option>
                     <option>Section B</option>
                     <option>Section C</option>

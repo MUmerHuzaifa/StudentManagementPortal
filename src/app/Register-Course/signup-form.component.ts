@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+
+import { AuthService } from '../auth.service';
 import {
   FormControl,
   FormGroupDirective,
@@ -23,6 +25,12 @@ import { lessThanOneNotAllowed, noAlphabetsAllowed, noFloatingNumbersAllowed, no
 export class SignupFormComponent implements OnInit {
  
   RegisterCourse_RF : FormGroup;
+  Courseregistration = {
+    courseName:"",
+    CourseId:"CS-1",
+    creditHourse:"",
+    section:"A",
+  };
  
   ngOnInit(): void {
       this.RegisterCourse_RF=new FormGroup({
@@ -31,21 +39,30 @@ export class SignupFormComponent implements OnInit {
       })
   }
  
- 
+  constructor(private apiService:AuthService  ) {
+
+  }
  
   onSubmit(){
-   
+    this.apiService.registerCourse(this. Courseregistration).subscribe(
+      response => {
+        console.log('course registration successful!', response);
+        alert("register sucessful")
+        
+        // this.router.navigate(['admin'])
+        
+      },
+      error => {
+        alert(
+         
+          "error while register"
+        )
+        console.error('register failed:', error);
+        
+      }
+    );
   }
-  // email = new FormControl('', [Validators.required, Validators.email]);
- 
-  // getErrorMessage() {
-  //   if (this.email.hasError('required')) {
-  //     return 'You must enter a value';
-  //   }
- 
-  //   return this.email.hasError('email') ? 'Not a valid email' : '';
-  // }
- 
+  
 }
  
  

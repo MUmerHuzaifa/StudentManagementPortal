@@ -23,6 +23,11 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}/register`, data)
     
   }
+  registerCourse(data: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/courseregister`, data)
+    
+  }
+  
   getLoggedInUserId(): number | null {
     return this.loggedInUserId;
   }
