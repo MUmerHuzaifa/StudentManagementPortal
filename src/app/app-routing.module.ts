@@ -19,21 +19,22 @@ const routes: Routes = [
   {
     path :'login',
     component : LoginFormComponent
-  },
-  
-  
+  },  
   {
     path :'courseregister',
-    component : SignupFormComponent
+    component : SignupFormComponent,
+    canActivate : [Role_Admin,Role_Student]
   },
   {
     path :'assigntask',
-    component : AssigntaskComponent
+    component : AssigntaskComponent,
+    canActivate : [Role_Admin]
   },
 
   {
     path :'admin',
-    component : AdminPannelComponent
+    component : AdminPannelComponent,
+    canActivate : [Role_Admin]
   },
   {
     path :'register',
@@ -44,14 +45,9 @@ const routes: Routes = [
     component: LoginFormComponent
   },
   {
-    path: 'courseregister',
-    component: SignupFormComponent,
-    canActivate: [Role_Student]
-  },
-  {
     path: 'home',
     component: HomePageComponent,
-    canActivate: [Role_Student]
+    canActivate : [Role_Admin,Role_Student]
   },
   {
     path: 'contact',
@@ -66,7 +62,7 @@ const routes: Routes = [
 
     path: 'newpassword',
     component: CreateNewPasswordComponent,
-    canActivate : [Role_ResetSuccessful]
+    canActivate : [Role_ResetSuccessful,Role_Admin]
 
   }
 
