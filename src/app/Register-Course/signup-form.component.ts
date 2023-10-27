@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -9,22 +9,42 @@ import {
   Validators,
   FormsModule,
   ReactiveFormsModule,
+  FormGroup,
 } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {NgIf} from '@angular/common';
+import { lessThanOneNotAllowed, noAlphabetsAllowed, noFloatingNumbersAllowed, noNumericAllowed, noSpaceAllowed } from '../Validators/noSpaceAllowed.validator';
 
 @Component({
   selector: 'app-signup-form',
   templateUrl: './signup-form.component.html',
   styleUrls: ['./signup-form.component.css'],
 })
-export class SignupFormComponent {
-  defaultState='Punjab'
-  defaultCity='Lahore'
-  default='FA18-BCE-004'
-  onSubmit(form: NgForm){
-      console.log(form)
-      alert("Confirm")
+export class SignupFormComponent implements OnInit {
+
+  RegisterCourse_RF : FormGroup;
+ 
+  courseDetails = {
+    courseId: '',
+    courseName:'',
+    creditHours:'',
+    section:'',
+  }
+
+  ngOnInit(): void {
+      this.RegisterCourse_RF=new FormGroup({
+        CourseName : new FormControl (null,[Validators.required,noNumericAllowed,Validators.maxLength(50)]),
+        CreditHour : new FormControl (null,[Validators.required,noSpaceAllowed,noAlphabetsAllowed,Validators.maxLength(1),lessThanOneNotAllowed]),
+        section : new FormControl (null,[Validators.required]),
+
+      })
+  }
+
+
+
+  onCourseDetailsSubmit(){
+    console.log(this.courseDetails)
+    
   }
   // email = new FormControl('', [Validators.required, Validators.email]);
 

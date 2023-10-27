@@ -45,4 +45,29 @@ export const trimSpace = (control: FormControl) => {
   
     return password === confirmPassword ? null : { passwordMismatch: true };
   }
+
+  export const noFloatingNumbersAllowed = (control: FormControl) => {
+    const value = control.value;
+  
+    // Check if the value is not null and contains a floating-point number
+    if (value != null && /\d+\.\d+/.test(value)) {
+      return { floatingNumbersNotAllowed: true };
+    }
+  
+    return null;
+  };
+
+  export const lessThanOneNotAllowed = (control: FormControl) => {
+    const value = parseFloat(control.value);
+  
+    if (isNaN(value)) {
+      return { invalidNumber: true };
+    }
+  
+    if (value <= 0) {
+      return { lessThanOneNotAllowed: true };
+    }
+  
+    return null;
+  };
   // Patterns are defines ineach Component depending upon their use

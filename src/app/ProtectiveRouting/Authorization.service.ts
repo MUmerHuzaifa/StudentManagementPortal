@@ -10,17 +10,16 @@ export class AuthorizedUsers {
   newPassword: boolean = true;
   isAdmin: boolean = true; // Add a property for the admin role
 
-  constructor(private authService: AuthService) {
-    const userId = authService.getLoggedInUserId();
-    console.log("User id for role is " + userId);
-    authService.getUserRole(userId).subscribe(role => {
-      if (role === 'admin') {
-        this.isAdmin = true;
-      }
-    });
-  }
+  // constructor(private authService: AuthService) {
+  //   const userId = authService.getLoggedInUserId();
+  //   console.log("User id for role is " + userId);
+  //   authService.getUserRole(userId).subscribe(role => {
+  //     if (role === 'admin') {
+  //       this.isAdmin = true;
+  //     }
+  //   });
+  // }
   
-
 
   adminLogin() {
     this.loggedIn = true;
