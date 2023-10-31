@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IframePracticeComponent } from '../iframe-practice/iframe-practice.component'
+ 
 
 @Component({
   selector: 'app-home-page',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+
+  notification_greetings:boolean=false;
+
+  closeGreetings(){
+    this.notification_greetings=true;
+  }
 
 }

@@ -14,10 +14,15 @@
   
       <div class="form-group">
         <label for="assignedTo">Assign To</label>
-        <select class="form-control" id="assignedTo" [(ngModel)]="selectedUser" name="assignedTo" required>
+        <!-- <select class="form-control" id="assignedTo" [(ngModel)]="selectedUser" name="assignedTo" required>
           <option [ngValue]="null">Select User</option>
           <option *ngFor="let user of users" [ngValue]="user">{{user.name}}</option>
+        </select> -->
+        <select class="form-control" id="assignedTo" [(ngModel)]="selectedUser" name="assignedTo" required>
+          <option [ngValue]="null">Select User</option>
+          <option *ngFor="let user of users" [ngValue]="user">{{ user.name }}</option>
         </select>
+        
       </div>
   
       <button [disabled]="taskForm.invalid || !selectedUser" id="submitButton" type="submit" class="btn btn-primary">Submit</button>

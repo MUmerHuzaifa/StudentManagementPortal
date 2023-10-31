@@ -8,7 +8,7 @@ export class Role_Student implements CanActivate{
 
     }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if(this.authService.IsStudentAuthenticated()){
+    if(this.authService.IsStudentAuthenticated() || this.authService.IsAdminAuthenticated()){
         return true;
     }   
     else {

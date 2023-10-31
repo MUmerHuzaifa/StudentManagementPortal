@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { noNumericAllowed, noSpaceAllowed } from '../Validators/noSpaceAllowed.validator';
@@ -12,7 +13,7 @@ export class RegisterUserComponent implements OnInit {
   RegisterUser_RF: FormGroup;
   userId = this.apiService.getLoggedInUserId();
  
-
+ 
   registrationData = {
     email: '',
     password: '',
@@ -20,9 +21,9 @@ export class RegisterUserComponent implements OnInit {
     username: '',
     role: ''
   };
-
+ 
   constructor(private apiService:AuthService , private router: Router ) {
-
+ 
   }
   ngOnInit(){
     const emailPattern = '^[\\w]+([\\.-]?[\\w]+)*@[\\w]+([\\.-]?[\\w]+)*(\\.\\w{2,3})+$';
@@ -34,11 +35,11 @@ export class RegisterUserComponent implements OnInit {
       role: new FormControl(null,[Validators.required]),
     })
   }
-
-
-
+ 
+ 
+ 
   onRegisterFormSubmit(){
-
+ 
     if (this.registrationData.password !== this.registrationData.confirmPassword) {
       console.error('Passwords do not match');
       return;
@@ -47,30 +48,31 @@ export class RegisterUserComponent implements OnInit {
     response => {
       console.log('Registration successful!', response);
       alert("Registration sucessful")
-      this.router.navigate(['login']) 
+      this.router.navigate(['login'])
     },
     error => {
       console.error('Registration failed:', error);
-      
+     
     }
   );
-  
-
+ 
+ 
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 }
-
-
+ 
+ 
+ 

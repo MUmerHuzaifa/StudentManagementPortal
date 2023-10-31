@@ -1,4 +1,8 @@
 <div class="home-container">
+    <div class="greetings" [hidden]="notification_greetings">
+        Welcome to Student Portal
+        <div class="cancel"  (click)="closeGreetings()">x</div>
+    </div>
     <div class="home-title">
         <h2>Student Dashboard</h2>
     </div>

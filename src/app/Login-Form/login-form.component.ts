@@ -24,7 +24,7 @@ ngOnInit(){
   const emailPattern = '^[\\w]+([\\.-]?[\\w]+)*@[\\w]+([\\.-]?[\\w]+)*(\\.\\w{2,3})+$';
   this.Login_RF=new FormGroup({
     email : new FormControl(null,[Validators.required,noSpaceAllowed,Validators.pattern(emailPattern)]),
-    password :  new FormControl(null,Validators.required),
+    password :  new FormControl(null,[Validators.required,Validators.maxLength(30),Validators.minLength(4)]),
     
   })
 }
@@ -36,8 +36,8 @@ this.apiService.loginUser(this.registration).subscribe(
     alert("login sucessful")
     this.apiService.getUserRole().subscribe(
       role => {
+        const fetchedRole = role;
         console.log('User Role:', role);
-       
       },
       error => {
         console.error('Error fetching user role:', error);
@@ -50,13 +50,14 @@ this.apiService.loginUser(this.registration).subscribe(
   error => {
     alert(
      
-      "error while login"
+      `error while login ${JSON.stringify(error) }`
     )
     console.error('login failed:', error);
     
   }
 );
 }
+
 
 
 
