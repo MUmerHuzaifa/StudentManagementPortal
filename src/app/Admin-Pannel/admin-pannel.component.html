@@ -1,4 +1,7 @@
 <div class="admin-page-container">
+  <div class="greetings" [hidden]="notification_greetings">
+    Welcome to Admin Portal <span class="cancel"  (click)="closeGreetings()">X</span>
+</div>
   <div class="admin-info">
     <div class="pic-Role">
         <div class="user-pic">

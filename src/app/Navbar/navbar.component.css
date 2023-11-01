@@ -26,11 +26,16 @@ a{
     justify-content: center;
     align-items: center;
 }
+#user_active{
+    justify-content: right;
+    background-color: rgb(233, 238, 238);
+
+}
 .menu{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 15%;
+    width: 20%;
     height: 90%;
     /* border: 2px solid black; */
     /* background-color: white; */
@@ -44,8 +49,28 @@ a{
 .links{
     width: 20%;
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     /* background-color: rgb(94, 146, 129); */
 }
+#user_active{
+    border-radius: 60px;
+    overflow: hidden;
+    font-size: 1.4vmax;
+    font-weight: 600;
+    font-family: sans-serif;
+    color: white;
+    display: flex;
+}
+#login-button-text{
+    color: white;
+    /* justify-content: right;
+    align-items: center; */
+
+}
+
 #img{
     width: 40%;
     height: 90%;

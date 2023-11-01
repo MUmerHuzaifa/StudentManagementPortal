@@ -7,7 +7,7 @@ import { AuthService } from '../auth.service';
 export class AuthorizedUsers {
   // I think by default it should be null
   // loggedIn: boolean = false;
-  studentIn: boolean = false;
+  studentIn: boolean = true;
   newPassword: boolean = true;
   isAdmin: boolean = true; // Add a property for the admin role
 
@@ -36,7 +36,7 @@ export class AuthorizedUsers {
 
   adminLogout() {
     // this.loggedIn = false;
-    this.isAdmin = false;
+    return this.isAdmin = false;
   }
 
   IsAdminAuthenticated() {

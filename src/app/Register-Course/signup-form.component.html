@@ -45,7 +45,8 @@
             <hr>
 
             <div class="col-md-12" style="display: flex;justify-content: right;">
-                <button class="btn btn-primary" type="submit" value="Submit" [disabled]="RegisterCourse_RF.invalid" style="margin-top: 20px;">Submit form</button>
+                <button class="btn btn-danger" type="submit" value="Submit"  [hidden]="!RegisterCourse_RF.touched" (click)="clearForm()" style="margin-top: 20px;margin-right: 20px;"> Reset</button>
+                <button class="btn btn-primary" type="submit" value="Submit" [disabled]="RegisterCourse_RF.invalid" style="margin-top: 20px;">Submit</button>
             </div>
 
 </form>

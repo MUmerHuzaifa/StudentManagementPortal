@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AdminPannelComponent {
 
+
+  notification_greetings:boolean=false;
+
+  closeGreetings(){
+    this.notification_greetings=true;
+  }
+
 }

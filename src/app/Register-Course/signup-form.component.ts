@@ -34,8 +34,13 @@ export class SignupFormComponent implements OnInit {
   }
 
   onCourseDetailsSubmit(){
-    console.log(this.Courseregistration)
-    
+    console.log(this.Courseregistration) 
+  }
+  clearForm(){
+    this.Courseregistration.courseId='',
+    this.Courseregistration.courseName='',
+    this.Courseregistration.creditHours='',
+    this.Courseregistration.section=''
   }
  
   ngOnInit(): void {

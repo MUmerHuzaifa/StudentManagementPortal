@@ -4,13 +4,17 @@
             <img src="/assets/handbag-fill.png" alt="" srcset="">
         </div>
     </div>
+  
     <div class="menues">
-        <a class="menu" routerLink="home">Home</a>
-        <a class="menu" routerLink="courseregister">Registration</a>
-        <a class="menu" routerLink="login">Login</a>
-        <a class="menu" routerLink="register">SignUp</a>
-        <a class="menu" routerLink="admin">Admin</a>
-
+        <a class="menu" routerLink="home" [hidden]="hideForStudent" *ngIf="!hideForStudent">Dashboard</a>
+        <a class="menu" routerLink="courseregister" [hidden]="hideForStudent">Register Course</a>
+        <!-- <a class="menu" routerLink="register">SignUp</a> -->
+        <!-- <a class="menu" routerLink="admin" >Admin</a> -->
     </div>
-    <div class="links"></div>
+    
+    <div class="links">
+        <button class="btn btn-primary" id="user_active" >
+            <a id="login-button-text" routerLink="login" [ngStyle]="{color: switch_text === 'Login' ? 'Green' : 'Red' }" [innerText]="switch_text" (click)="switch_mode()">Login</a>
+        </button>
+    </div>
 </div>
