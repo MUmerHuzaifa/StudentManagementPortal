@@ -27,7 +27,7 @@ export class SignupFormComponent implements OnInit {
   RegisterCourse_RF : FormGroup;
   Courseregistration = {
     courseName:"",
-    CourseId:"CS-1",
+    CourseId:"",
     creditHourse:"",
     section:"A",
   };
@@ -53,11 +53,11 @@ export class SignupFormComponent implements OnInit {
         
       },
       error => {
-        alert(
+        // alert(
          
-          "error while register"
-        )
-        console.error('register failed:', error);
+        //   "error while register"
+        // )
+        // console.error('register failed:', error);
         
       }
     );
