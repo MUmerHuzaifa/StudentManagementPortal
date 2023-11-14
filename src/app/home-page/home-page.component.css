@@ -26,15 +26,23 @@
 
 
 }
+.fadeout{
+  
+    visibility:hidden;
+    opacity:0;
+    transition:visibility 0s 2s, opacity 2s linear;
+    
+}
 .greetings{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: cadetblue;
+  background-color: rgb(218, 140, 140);
   width: 50%;
   height: 30px;
   margin: 0px auto;
   border-radius: 10px;
+  transition:visibility 0s 2s, opacity 2s linear;
 }
 .cancel{
   color: maroon;

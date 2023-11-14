@@ -51,15 +51,13 @@ td{
     background-color: rgb(244, 248, 248);
     height: 40vh;
     width: 100%;
-    
-  
   }
 
   .greetings{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: cadetblue;
+    background-color: rgb(218, 140, 140);
     width: 50%;
     height: 30px;
     margin: 0px auto;
