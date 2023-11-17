@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IframePracticeComponent } from '../iframe-practice/iframe-practice.component'
  
 
 @Component({

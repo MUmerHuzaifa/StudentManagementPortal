@@ -18,7 +18,6 @@ import { Role_Admin } from './ProtectiveRouting/Admin-Guard.service';
 import { AuthorizedUsers } from './ProtectiveRouting/Authorization.service';
 import { Role_Student } from './ProtectiveRouting/Student-Guard.service';
 import { Role_ResetSuccessful } from './ProtectiveRouting/PassResetSucc.service';
-import { IframePracticeComponent } from './iframe-practice/iframe-practice.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { IframePracticeComponent } from './iframe-practice/iframe-practice.compo
     ForgotPasswordComponent,
     AssigntaskComponent,
     CreateNewPasswordComponent,
-    IframePracticeComponent,
   ],
   imports: [
     BrowserModule,

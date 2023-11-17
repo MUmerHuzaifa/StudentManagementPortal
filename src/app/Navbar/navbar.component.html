@@ -9,12 +9,15 @@
         <a class="menu" routerLink="home" [hidden]="hideForStudent">Dashboard</a>
         <a class="menu" routerLink="courseregister" [hidden]="hideForStudent">Register Course</a>
         <!-- <a class="menu" routerLink="register">SignUp</a> -->
-        <!-- <a class="menu" routerLink="admin" >Admin</a> -->
+        <a class="menu" routerLink="admin" [hidden]="hideForAdmin" >Admin</a>
     </div>
     
     <div class="links">
         <button class="btn btn-primary" id="user_active" >
             <a id="login-button-text" routerLink="login" [ngStyle]="{color: switch_text === 'Login' ? 'Green' : 'Red' }" [innerText]="switch_text" (click)="switch_mode()">Login</a>
+        </button>
+        <button class="btn btn-primary" id="user_active" >
+            <a id="login-button-text" routerLink="login" [ngStyle]="{color: switch_text_admin === 'Login' ? 'Red' : 'Green' }" [innerText]="switch_text_admin" (click)="switch_mode_admin()">Login</a>
         </button>
     </div>
 </div>
