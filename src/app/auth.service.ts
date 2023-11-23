@@ -61,7 +61,13 @@ export class AuthService {
   
 
   getUserData(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/getusers`);
+    return this.http.get<any[]>(`${this.apiUrl}/getusers/`);
+  }
+  getUserDataBasedOnRole(): Observable<any[]> {
+    const currentUserIdAcquired = this.getLoggedInUserId();
+    console.log("current user id is"+currentUserIdAcquired);
+    const userDetails = this.http.get<any[]>(`${this.apiUrl}/${currentUserIdAcquired}`);
+    return userDetails;
   }
 }
 

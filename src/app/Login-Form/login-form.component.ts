@@ -1,6 +1,7 @@
 import { OnInit,Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup ,Validators } from '@angular/forms';
 import { noSpaceAllowed } from '../Validators/noSpaceAllowed.validator';
+import { UserRoleService } from '../user-role.service';
 
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
@@ -17,7 +18,8 @@ export class LoginFormComponent implements OnInit {
     password: '',
    
   };
-  constructor(private apiService:AuthService , private router: Router ) {
+  constructor(private apiService:AuthService , private router: Router, private userRoleService: UserRoleService ) {
+   
 
   }
 ngOnInit(){
@@ -38,13 +40,21 @@ this.apiService.loginUser(this.registration).subscribe(
       role => {
         const fetchedRole = role;
         console.log('User Role:', role);
+        this.userRoleService.setUserRole(role);
+
+        if(role=="Student"){
+          this.router.navigate(['home'])
+        } else if(role=="Admin"){
+          this.router.navigate(['admin'])
+        }
+
       },
       error => {
         console.error('Error fetching user role:', error);
        
       }
     );
-    this.router.navigate(['admin'])
+  
     
   },
   error => {
@@ -57,8 +67,5 @@ this.apiService.loginUser(this.registration).subscribe(
   }
 );
 }
-
-
-
 
 }

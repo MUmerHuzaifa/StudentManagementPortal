@@ -1,53 +1,55 @@
-import { Component } from '@angular/core';
+// navbar.component.ts
+
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthorizedUsers } from '../ProtectiveRouting/Authorization.service'
+import { UserRoleService } from '../user-role.service';
+import { AuthorizedUsers } from '../ProtectiveRouting/Authorization.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent {
-  constructor(private authorizedUsers: AuthorizedUsers, private router: Router) {
-  }
-
-
-  hideForStudent:boolean=true;
-  hideForAdmin:boolean=true;
-  
-  switch_text:string ='Login'
-  switch_text_admin:string ='Login'
-
+export class NavbarComponent implements OnInit {
+ 
+  hideForStudent: boolean = true;
+  hideForAdmin: boolean = true;
+  switch_text: string = 'Login';
+  constructor(
+    private userRoleService: UserRoleService,
+    private authorizedUsers: AuthorizedUsers,
+    private router: Router
+  ) {}
   switch_mode(){
-    if(this.switch_text =='Login'){
-      this.switch_text='Logout'
-      this.authorizedUsers.studentLogin();
-      this.hideForStudent=false;
-      this.router.navigateByUrl('/home');
-    }
-
-    else if(this.switch_text =='Logout'){
+    // alert(this.switch_text)
+    if(this.switch_text=='Logout'){
       this.switch_text='Login'
-      this.authorizedUsers.studentLogout();
       this.hideForStudent=true;
-      this.router.navigateByUrl('/login');
-    }
-  }
-
-  switch_mode_admin(){
-    if(this.switch_text_admin =='Login'){
-      this.switch_text_admin='Logout'
-      this.authorizedUsers.adminLogin();
-      this.hideForAdmin=false;
-      this.router.navigateByUrl('/admin');
-    }
-
-    else if(this.switch_text_admin =='Logout'){
-      this.switch_text_admin='Login'
-      this.authorizedUsers.adminLogout();
       this.hideForAdmin=true;
-      this.router.navigateByUrl('/login');
+      this.router.navigate(['login']);
+
     }
   }
+  ngOnInit(): void {
+    this.userRoleService.getUserRole().subscribe((userRole) => {
+      // alert(userRole);
 
+      // Based on the user role, you may want to adjust the component's behavior
+      if (userRole === 'Student') {
+        this.switch_text = 'Logout';
+        this.authorizedUsers.studentLogin();
+        this.hideForStudent = false;
+        this.router.navigate(['home']);
+      } else if (userRole === 'Admin') {
+        this.switch_text = 'Logout';
+        this.authorizedUsers.adminLogin();
+        this.hideForAdmin = false;
+        this.router.navigate(['admin']);
+      }
+
+    });
+    
+  }
+
+ 
 }
