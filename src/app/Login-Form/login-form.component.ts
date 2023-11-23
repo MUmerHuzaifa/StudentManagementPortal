@@ -38,10 +38,10 @@ this.apiService.loginUser(this.registration).subscribe(
     alert("login sucessful")
     this.apiService.getUserRole().subscribe(
       role => {
+        localStorage.setItem('currentUser',role)
         const fetchedRole = role;
         console.log('User Role:', role);
         this.userRoleService.setUserRole(role);
-
         if(role=="Student"){
           this.router.navigate(['home'])
         } else if(role=="Admin"){

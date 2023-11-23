@@ -8,7 +8,7 @@ export class Role_Admin implements CanActivate{
 
     }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    if(this.authService.IsAdminAuthenticated()){
+    if(this.authService.IsAdminAuthenticated() && localStorage.getItem('currentUser')=='Admin'){
         return true;
     }   
     else {

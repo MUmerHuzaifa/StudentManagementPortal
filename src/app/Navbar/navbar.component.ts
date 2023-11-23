@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   hideForStudent: boolean = true;
   hideForAdmin: boolean = true;
   switch_text: string = 'Login';
+  GlobalRole : string = null;
   constructor(
     private userRoleService: UserRoleService,
     private authorizedUsers: AuthorizedUsers,
@@ -22,18 +23,22 @@ export class NavbarComponent implements OnInit {
   ) {}
   switch_mode(){
     // alert(this.switch_text)
-    if(this.switch_text=='Logout'){
+    if(this.GlobalRole!=null){
       this.switch_text='Login'
       this.hideForStudent=true;
       this.hideForAdmin=true;
       this.router.navigate(['login']);
+      localStorage.removeItem('currentUser')
+    }
+    else if (this.GlobalRole=='Student' || this.GlobalRole=='Admin'){
+      this.switch_text='Logout'
 
     }
   }
   ngOnInit(): void {
     this.userRoleService.getUserRole().subscribe((userRole) => {
       // alert(userRole);
-
+      this.GlobalRole=userRole;
       // Based on the user role, you may want to adjust the component's behavior
       if (userRole === 'Student') {
         this.switch_text = 'Logout';
