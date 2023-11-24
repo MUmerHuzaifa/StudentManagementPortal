@@ -47,6 +47,10 @@ this.apiService.loginUser(this.registration).subscribe(
         } else if(role=="Admin"){
           this.router.navigate(['admin'])
         }
+        // localStorage.setItem('UserDetails',)
+      
+        localStorage.setItem('switch_text_login','Login');
+        localStorage.setItem('switch_text_logout','Logout');
 
       },
       error => {
@@ -54,7 +58,7 @@ this.apiService.loginUser(this.registration).subscribe(
        
       }
     );
-  
+      
     
   },
   error => {
