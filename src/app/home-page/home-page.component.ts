@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service'; 
- 
+import { AuthService } from '../auth.service';
+import { UserRoleService } from '../user-role.service';
 
 @Component({
   selector: 'app-home-page',
@@ -8,41 +8,64 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+  status: boolean;
+  userId: string;
+  userEmail: string;
+  userPassword: string;
+  username: string;
+  userRole: string;
+
+  constructor(private authService: AuthService, private userRoleServiceData: UserRoleService) {}
 
   ngOnInit(): void {
-      
+    // Try to get user data from local storage
+    const userDetailsString = localStorage.getItem('userDetails');
+
+    if (userDetailsString) {
+      const userDetails = JSON.parse(userDetailsString);
+      this.loadStudentDetail(userDetails);
+    } else {
+      // If user details are not in local storage, fetch from the service
+      this.userRoleServiceData.getUserData().subscribe((userData) => {
+        if (userData) {
+          this.loadStudentDetail(userData);
+
+          // Store user details in local storage for future use
+          localStorage.setItem('userDetails', JSON.stringify(userData));
+        }
+      });
+    }
   }
 
-    constructor(private authService: AuthService){
-    const currentUserIdAcquired = this.authService.getLoggedInUserId();
-    const currentUserNameAcquired = this.authService.getUserData();
-    // alert("Logged in user id is" +currentUserIdAcquired);
+  loadStudentDetail(userData: any) {
+    const status = userData.status;
+    const user = userData.user;
+    this.userRole = localStorage.getItem('currentUser');
 
-        this.authService.getUserDataBasedOnRole().subscribe(
-          details => {
-            const userDetails = details;
-            console.log('User Details are:', userDetails);    
-          },
-          error => {
-            console.error('Error fetching user details:', error);
-          }
-        );
-      
-}
+    if (this.userRole == 'Admin') {
+      this.userId = '123456789';
+      this.userEmail = 'xyz@student.com';
+      this.userPassword = 'testpass';
+      this.username = 'dummy data';
+      this.userRole = 'Student';
+    } else {
+      this.userId = user._id;
+      this.userEmail = user.email;
+      this.userPassword = user.password;
+      this.username = user.username;
 
-currentUserDetails={
-  username : '' ,
-  email: '',
-  role: '',
-  _id: '',
-}
-  notification_greetings:boolean=false;
-
-  closeGreetings(){
-    this.notification_greetings=true;
+      console.log('Status:', status);
+      console.log('Role:', this.userRole);
+      console.log('User ID:', this.userId);
+      console.log('User Email:', this.userEmail);
+      console.log('User Password:', this.userPassword);
+      console.log('User Name:', this.username);
+    }
   }
 
-  
+  notification_greetings: boolean = false;
 
-
+  closeGreetings() {
+    this.notification_greetings = true;
+  }
 }

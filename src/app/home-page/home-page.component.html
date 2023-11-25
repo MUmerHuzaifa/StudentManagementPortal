@@ -1,6 +1,6 @@
 <div class="home-container">
     <div class="greetings" [hidden]="notification_greetings">
-        Welcome to Student Portal <span class="cancel"  (click)="closeGreetings()">X</span>
+        Welcome to {{userRole}} Portal <span class="cancel" (click)="closeGreetings()">X</span>
     </div>
     <div class="home-title">
         <h2>Student Dashboard</h2>
@@ -14,22 +14,20 @@
                 <img src="" alt="" srcset="">
             </div>
             <div class="user-role">
-                <h4>Student</h4>
+                <h4>{{userRole}}</h4>
             </div>
         </div>
         <div class="personal-details">
             <div class="user-info">
-                <h6>Name : {{'Muhammad Umer Huzaifa'}}</h6>
+                <h6>Role : {{userRole}}</h6>
             </div>
             <div class="user-info">
-                <h6>Email : {{' umer@vertex.com'}}</h6>
+                <h6>Name : {{username}}</h6>
             </div>
             <div class="user-info">
-                <h6>Contact : {{'0304 7951997'}} </h6>
+                <h6>Email : {{userEmail}}</h6>
             </div>
-            <div class="user-info">
-                <h6>Address : {{'Lahore'}} </h6>
-            </div>
+        
         </div>
     </div>
     <div class="section-title">

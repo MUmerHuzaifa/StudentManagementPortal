@@ -47,8 +47,33 @@ this.apiService.loginUser(this.registration).subscribe(
         } else if(role=="Admin"){
           this.router.navigate(['admin'])
         }
-        // localStorage.setItem('UserDetails',)
-      
+        //getting logged user detail only
+        this.apiService.getUserDataBasedOnRole().subscribe(
+          details => {
+            const userDetails: any = details;
+            const userDetailsString = JSON.stringify(userDetails);
+            this.userRoleService.setUserDetails(userDetails);
+
+            localStorage.setItem("userDetails", userDetailsString);
+          },
+          error => {
+            console.error('Error fetching user details:', error);
+          }
+        );
+          // getting all users data 
+          if(role=='Admin'){
+            this.apiService.getUserData().subscribe(
+              allStudents => {
+                const students: any = allStudents;
+                const userDetailsString = JSON.stringify(students);
+                localStorage.setItem("allStudents", userDetailsString);
+              },
+              error => {
+                console.error('Error fetching all students:', error);
+              }
+            );
+          }
+
         localStorage.setItem('switch_text_login','Login');
         localStorage.setItem('switch_text_logout','Logout');
 
