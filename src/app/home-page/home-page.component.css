@@ -74,10 +74,30 @@
 
 }
 
+.notification{
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 90%;
+  background-color: rgb(219, 224, 224);
+  word-wrap: break-word; /* Wrap long words to the next line */
+  margin-right: 100px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+.showCaseForTask{
+  height: 80%;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgb(215, 228, 228);
+
+}
 .pic-Role {
   /* border: 1px solid orange; */
   height: 100%;
-  width: 30%;
   padding: 10px;
   background-color: rgb(244, 248, 248);
 
@@ -119,7 +139,6 @@
 .personal-details {
   /* border: 1px solid orange; */
   height: 100%;
-  width: 70%;
   /* padding: 10px; */
   margin: 20px auto;
   word-wrap: break-word; /* Wrap long words to the next line */

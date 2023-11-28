@@ -1,56 +1,66 @@
 <div class="form-container">
     <div class="form-title">
         <h2 id="registration">Login Form</h2>
-        <h6 id="registerLink" class="link-success"> Don't have account? <a routerLink="/register" class="link-danger">Register Now</a></h6>
+        <!-- <h6 id="registerLink" class="link-success"> Don't have account? <a routerLink="/register" class="link-danger">Register Now</a></h6> -->
+        <h6 [hidden]="loginPassed" id="registerLink" class="link-success"> Login Successfull</h6>
+        <h6 [hidden]="loginFailed" id="registerLink" class="link-danger"> Email or Password is INVALID</h6>
+
+
     </div>
 
     <div class="form-body">
         <hr>
         <form class="row g-3 needs-validation" [formGroup]="Login_RF" (ngSubmit)="onFormSubmitted()">
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" formControlName="email" placeholder="name@example.com" [(ngModel)]="registration.email">
+                <input type="email" class="form-control" id="floatingInput" formControlName="email"
+                    placeholder="name@example.com" [(ngModel)]="registration.email">
                 <label for="floatingInput">Email address</label>
-            <small *ngIf="Login_RF.get('email').errors?.['required'] && Login_RF.get('email').touched">*This Field id Required</small>
-            <small *ngIf="Login_RF.get('email').errors?.['noSpaceAllowed']">*No Space Allowed</small>
-            <small *ngIf="Login_RF.get('email').hasError('pattern')">*Invalid Email Format</small>
+                <small *ngIf="Login_RF.get('email').errors?.['required'] && Login_RF.get('email').touched">*This Field
+                    id Required</small>
+                <small *ngIf="Login_RF.get('email').errors?.['noSpaceAllowed']">*No Space Allowed</small>
+                <small *ngIf="Login_RF.get('email').hasError('pattern')">*Invalid Email Format</small>
 
 
 
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" formControlName="password" placeholder="Password" [(ngModel)]="registration.password">
+                <input type="password" class="form-control" id="floatingPassword" formControlName="password"
+                    placeholder="Password" [(ngModel)]="registration.password">
                 <label for="floatingPassword">Password</label>
-                <small *ngIf="Login_RF.get('password').errors?.['required'] && Login_RF.get('password').touched">*This Field id Required</small>
+                <small *ngIf="Login_RF.get('password').errors?.['required'] && Login_RF.get('password').touched">*This
+                    Field id Required</small>
                 <small *ngIf="Login_RF.get('password').hasError('minlength')">*Enter Minimum 4 Letters</small>
                 <small *ngIf="Login_RF.get('password').hasError('maxlength')">*Enter Maximum 30 Leters</small>
             </div>
-       
 
-        <hr>
-        <div class="checkouts">
-            <p style="text-align: right;padding: 10px;"><a routerLink="/forgot" class="link-danger">Forgot Password ?</a></p>
 
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Remember Me
-                </label>
+            <hr>
+            <div class="checkouts">
+                <p style="text-align: right;padding: 10px;"><a routerLink="/forgot" class="link-danger">Forgot Password
+                        ?</a></p>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="rememberMe" [(ngModel)]="registration.rememberMe">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Remember Me
+                    </label>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <button class="btn btn-success" type="submit" value="Submit" [disabled]="Login_RF.invalid"
+                    style="margin-top: 20px;">Login</button>
+
+
             </div>
-
-
-
-
-
-
-            
-
-            
-
-            <button class="btn btn-success" type="submit" value="Submit" [disabled]="Login_RF.invalid" style="margin-top: 20px;">Login</button>
-           
-        
-        </div>
-    </form>
+        </form>
 
     </div>
 

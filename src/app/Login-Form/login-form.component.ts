@@ -12,10 +12,13 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
   Login_RF: FormGroup;
+  loginPassed:boolean=true;
+  loginFailed:boolean=true;
 
   registration = {
     email: '',
     password: '',
+    rememberMe:'',
    
   };
   constructor(private apiService:AuthService , private router: Router, private userRoleService: UserRoleService ) {
@@ -27,17 +30,28 @@ ngOnInit(){
   this.Login_RF=new FormGroup({
     email : new FormControl(null,[Validators.required,noSpaceAllowed,Validators.pattern(emailPattern)]),
     password :  new FormControl(null,[Validators.required,Validators.maxLength(30),Validators.minLength(4)]),
-    
+    rememberMe: new FormControl(null), 
+
   })
 }
 onFormSubmitted(){
-  
+  let rememberMeChecked = this.Login_RF.get('rememberMe').value;
+  if(rememberMeChecked){
+    this.userRoleService.setRememberMe(rememberMeChecked);
+    localStorage.setItem("rememberMe",rememberMeChecked);
+  }
+
+  // console.log("Remember me value"+rememberMeChecked)
 this.apiService.loginUser(this.registration).subscribe(
   response => {
     console.log('login successful!', response);
-    alert("login sucessful")
+    // alert("login sucessful")
+    this.loginPassed=false;
+    this.loginFailed=true;
+
     this.apiService.getUserRole().subscribe(
       role => {
+    
         localStorage.setItem('currentUser',role)
         const fetchedRole = role;
         console.log('User Role:', role);
@@ -61,18 +75,7 @@ this.apiService.loginUser(this.registration).subscribe(
           }
         );
           // getting all users data 
-          if(role=='Admin'){
-            this.apiService.getUserData().subscribe(
-              allStudents => {
-                const students: any = allStudents;
-                const userDetailsString = JSON.stringify(students);
-                localStorage.setItem("allStudents", userDetailsString);
-              },
-              error => {
-                console.error('Error fetching all students:', error);
-              }
-            );
-          }
+        
 
         localStorage.setItem('switch_text_login','Login');
         localStorage.setItem('switch_text_logout','Logout');
@@ -87,10 +90,10 @@ this.apiService.loginUser(this.registration).subscribe(
     
   },
   error => {
-    alert(
-     
-      `error while login ${JSON.stringify(error) }`
-    )
+    this.loginFailed=false;
+    // alert(
+    //   `error while login ${JSON.stringify(error) }`
+    // )
     console.error('login failed:', error);
     
   }

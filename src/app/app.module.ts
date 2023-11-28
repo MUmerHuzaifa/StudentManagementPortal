@@ -18,6 +18,7 @@ import { Role_Admin } from './ProtectiveRouting/Admin-Guard.service';
 import { AuthorizedUsers } from './ProtectiveRouting/Authorization.service';
 import { Role_Student } from './ProtectiveRouting/Student-Guard.service';
 import { Role_ResetSuccessful } from './ProtectiveRouting/PassResetSucc.service';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { Role_ResetSuccessful } from './ProtectiveRouting/PassResetSucc.service'
     ForgotPasswordComponent,
     AssigntaskComponent,
     CreateNewPasswordComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,

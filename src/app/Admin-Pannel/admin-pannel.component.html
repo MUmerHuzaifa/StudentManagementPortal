@@ -24,6 +24,7 @@
         <h6>Email : {{userEmail}}</h6>
       </div>
     </div>
+    
   </div>
   <hr>
   <div class="admin-action-area">
@@ -33,72 +34,29 @@
           <th scope="col">Registration #</th>
           <th scope="col">Student Name</th>
           <th scope="col">Email</th>
-          <th scope="col">Section</th>
-          <th scope="col">Status</th>
+          <th scope="col">Role</th>
           <th scope="col">Actions</th>
 
         </tr>
       </thead>
-      <tbody class="table-group-divider" *ngFor="let item of this.allIds">
-        <tr id="table-data">
-          <th scope="row">1</th>
-          <td>{{item.id}}</td>
-          <td>Huzaifa</td>
-          <td>umer@gmail.com</td>
-          <td>03047951997</td>
-          <td>Punjab</td>
-          <td>Lahore</td>
-          <td>08-01-2002</td>
-          <td>Enrolled</td>
-          <td style="padding: 10px;margin-left: 10px;">
-
-            <button class="btn btn-primary" type="button" routerLink="/assigntask">Task</button>
-
-            <!-- <button class="btn btn-primary" type="action-button">Edit</button>
-          <button class="btn btn-success" type="action-button">Add</button>
-          <button class="btn btn-danger" type="action-button">Del</button> -->
-
-          </td>
-        </tr>
-        <tr id="table-data">
-          <th scope="row">2</th>
-          <td>Ali</td>
-          <td>Hunzla</td>
-          <td>ali@gmail.com</td>
-          <td>03047546557</td>
-          <td>Sindth</td>
-          <td>Karachi</td>
-          <td>08-01-2002</td>
-          <td>Enrolled</td>
-          <td id="buttons-sect" style="padding: 10px;margin-left: 10px;">
-
-            <button class="btn btn-primary" type="button" routerLink="/assigntask">Task</button>
-
-            <!-- <button class="btn btn-primary" type="action-button">Edit</button>
-          <button class="btn btn-success" type="action-button">Add</button>
-          <button class="btn btn-danger" type="action-button">Del</button> -->
-
-          </td>
-        </tr>
-        <tr id="table-data">
-          <th scope="row"  *ngFor="let item of users">3</th>
+      <tbody class="table-group-divider">
+        <tr id="table-data" *ngFor="let item of allStudents">
+          <!-- <th scope="row">1</th> -->
+          <td>{{item._id}}</td>
           <td>{{item.username}}</td>
-          <td>Amir</td>
-          <td>mamir@gmail.com</td>
-          <td>03047564877</td>
-          <td>Balochistan</td>
-          <td>Quetta</td>
-          <td>08-01-2002</td>
-          <td>Enrolled</td>
+          <td>{{item.email}}</td>
+          <td>{{item.role}}</td>
+
           <td style="padding: 10px;margin-left: 10px;">
 
-            <button class="btn btn-primary" type="button" routerLink="/assigntask">Task</button>
-            <!-- <button class="btn btn-primary" type="action-button">Edit</button>
-          <button class="btn btn-success" type="action-button">Add</button>
-          <button class="btn btn-danger" type="action-button">Del</button> -->
+            <!-- <button class="btn btn-primary" type="button" routerLink="/assigntask">Task</button> -->
+
+            <button class="btn btn-primary" type="button" routerLink="/register">Edit</button>
+            <button class="btn btn-danger" type="button" (click)="onDelete(item._id)">Del</button>
 
           </td>
         </tr>
+
       </tbody>
     </table>
   </div>

@@ -13,6 +13,7 @@ import { Role_Admin } from './ProtectiveRouting/Admin-Guard.service';
 import { Role_Student } from './ProtectiveRouting/Student-Guard.service';
 import { Role_ResetSuccessful } from './ProtectiveRouting/PassResetSucc.service';
 import { NavbarComponent } from './Navbar/navbar.component';
+import { PagenotfoundComponent } from './PageNotFound404/pagenotfound.component';
 // import { Any_User } from './ProtectiveRouting/AnyUserLoggedIn.service';
 
 
@@ -46,6 +47,7 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterUserComponent,
+    canActivate: [Role_Admin],
     title : "Signup"
   },
   {
@@ -80,6 +82,10 @@ const routes: Routes = [
     path: 'navbar',
     component: NavbarComponent,
     // canActivate : [Any_User]
+  },
+  {
+    path : '**',
+    component : PagenotfoundComponent,
   }
 
 ];

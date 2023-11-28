@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { UserRoleService } from '../user-role.service';
-
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -14,6 +13,7 @@ export class HomePageComponent implements OnInit {
   userPassword: string;
   username: string;
   userRole: string;
+  taskAssigned:string='done?';
 
   constructor(private authService: AuthService, private userRoleServiceData: UserRoleService) {}
 
@@ -38,9 +38,16 @@ export class HomePageComponent implements OnInit {
   }
 
   loadStudentDetail(userData: any) {
+    this.taskAssigned
     const status = userData.status;
     const user = userData.user;
     this.userRole = localStorage.getItem('currentUser');
+    this.authService.getTasksForUser(user._id).subscribe((task)=>{
+      console.log(user._id)
+      this.taskAssigned=task;
+      console.log(this.taskAssigned)
+    })
+
 
     if (this.userRole == 'Admin') {
       this.userId = '123456789';

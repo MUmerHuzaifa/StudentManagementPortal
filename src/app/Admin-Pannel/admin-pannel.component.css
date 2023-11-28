@@ -135,3 +135,13 @@ td{
     margin: 10px;
   }
   
+  .notification{
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 90%;
+    background-color: rgb(219, 224, 224);
+    word-wrap: break-word; /* Wrap long words to the next line */
+    margin-right: 100px;
+    border-radius: 20px;
+  
+  }

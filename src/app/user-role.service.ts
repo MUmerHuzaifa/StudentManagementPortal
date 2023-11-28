@@ -10,6 +10,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class UserRoleService {
   private userRoleSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private userDetails = new BehaviorSubject<any>(null);
+  private rememberMeCheck = new BehaviorSubject<any>(null);
+  private allUsersData = new BehaviorSubject<any> (null);
+
   userDetails$: Observable<any> = this.userDetails.asObservable();
 
   setUserRole(role: string) {
@@ -27,4 +30,21 @@ export class UserRoleService {
   setUserDetails(details:any){
     this.userDetails.next(details)
   }
+
+  setRememberMe(details:any){
+    this.rememberMeCheck.next(details)
+  }
+
+  getRememberMe():Observable<object>{
+    return this.rememberMeCheck.asObservable();
+  }
+
+  setAllUsersData(usersData:any){
+    this.allUsersData.next(usersData)
+  }
+
+  getAllUsersData():Observable<any>{
+    return this.allUsersData.asObservable();
+  }
+
 }

@@ -12,7 +12,9 @@ import { Router } from '@angular/router';
 export class RegisterUserComponent implements OnInit {
   RegisterUser_RF: FormGroup;
   userId = this.apiService.getLoggedInUserId();
- 
+  Registered:boolean=true
+  Failed:boolean=true
+  passwordMissMatched:boolean=true
  
   registrationData = {
     email: '',
@@ -42,16 +44,19 @@ export class RegisterUserComponent implements OnInit {
  
     if (this.registrationData.password !== this.registrationData.confirmPassword) {
       console.error('Passwords do not match');
+      this.passwordMissMatched=false;
       return;
   }
   this.apiService.registerUser(this.registrationData).subscribe(
     response => {
       console.log('Registration successful!', response);
-      alert("Registration sucessful")
-      this.router.navigate(['login'])
+      this.Registered=false;
+      // alert("Registration sucessful")
+      this.router.navigate(['admin'])
     },
     error => {
       console.error('Registration failed:', error);
+      this.Failed=false;
      
     }
   );

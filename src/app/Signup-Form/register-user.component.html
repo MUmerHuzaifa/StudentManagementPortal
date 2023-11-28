@@ -1,7 +1,11 @@
 <div class="form-container">
     <div class="form-title">
-        <h2 id="registration">Signup Form</h2>
-        <h6 id="registerLink" class="link-success"> Have an account ? <a routerLink="/login" class="link-danger">Login Now</a></h6>
+        <h2 id="registration">Register User</h2>
+        <!-- <h6 id="registerLink" class="link-success"> Have an account ? <a routerLink="/login" class="link-danger">Login Now</a></h6> -->
+        <h6 [hidden]="Registered" id="registerLink" class="link-success"> Successfully Registered</h6>
+        <h6 [hidden]="Failed" id="registerLink" class="link-danger"> Registration Failed</h6>
+        <h6 [hidden]="passwordMissMatched" id="registerLink" class="link-danger"> Passwords Miss Matched</h6>
+
     </div>
 
     <div class="form-body">

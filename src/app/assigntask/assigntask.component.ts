@@ -57,7 +57,7 @@ export class AssigntaskComponent  implements OnInit {
         if (data && data.status === true && Array.isArray(data.users)) {
           this.users = data.users.map(user => {
             return {
-              userID: user.userID, // Assign the user ID if it's needed
+              userID: user._id, // Assign the user ID if it's needed
               name: user.username // Extract and assign the username property
             };
           });
@@ -74,19 +74,38 @@ export class AssigntaskComponent  implements OnInit {
     );
   }
   
-  
-  
-
   onSubmit(form: NgForm) {
     if (this.selectedUser) {
-      this.taskArray.push({
+      const taskData = {
         taskName: form.controls['task'].value,
-        assignedTo: this.selectedUser
-      });
+        assignedTo: this.selectedUser,
+      };
+      console.log("Task is "+taskData.taskName)
+      console.log("Id is "+taskData.assignedTo.userID)
 
+      this.AuthService.assignTaskToUser(taskData.taskName,taskData.assignedTo.userID)
+      .subscribe(
+        response => {
+          // Handle the success response if needed
+          console.log('Task assigned successfully:', response);
+        },
+        error => {
+          // Handle the error response if needed
+          console.error('Error assigning task:', error);
+        }
+      );
+      // Call another function with the task data
+      this.sendTaskData(taskData);
+  
+      // Reset the form and selected user
       form.reset();
       this.selectedUser = null;
     }
+  }
+  
+  sendTaskData(taskData: { taskName: string, assignedTo: User }) {
+    // Add your logic here to handle the task data
+    console.log('Task Data:', taskData);
   }
 
   onDelete(index: number) {
