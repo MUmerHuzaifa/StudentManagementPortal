@@ -77,13 +77,13 @@ export class AssigntaskComponent  implements OnInit {
   onSubmit(form: NgForm) {
     if (this.selectedUser) {
       const taskData = {
-        taskName: form.controls['task'].value,
-        assignedTo: this.selectedUser,
+        Task: form.controls['task'].value,
+        UserId: this.selectedUser.userID
       };
-      console.log("Task is "+taskData.taskName)
-      console.log("Id is "+taskData.assignedTo.userID)
+      console.log("Task is "+taskData.Task)
+      console.log("Id is "+taskData.UserId)
 
-      this.AuthService.assignTaskToUser(taskData.taskName,taskData.assignedTo.userID)
+      this.AuthService.assignTaskToUser(taskData)
       .subscribe(
         response => {
           // Handle the success response if needed
@@ -95,7 +95,7 @@ export class AssigntaskComponent  implements OnInit {
         }
       );
       // Call another function with the task data
-      this.sendTaskData(taskData);
+      // this.sendTaskData(taskData);
   
       // Reset the form and selected user
       form.reset();

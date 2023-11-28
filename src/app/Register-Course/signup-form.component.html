@@ -8,16 +8,30 @@
         <form class="row g-3 needs-validation" [formGroup]="RegisterCourse_RF"  (ngSubmit)="onCourseDetailsSubmit()">
             <div class="col-md-4">
                 <label for="validationCustom01" class="form-label">Course Id</label>
-                <input type="number" class="form-control" id="validationCustom01" name="CourseId" disabled placeholder="CSC-104" required [(ngModel)]="Courseregistration.courseId">
-        
+                <select class="form-select" id="validationCustom09" formControlName="courseId" name="Section" [(ngModel)]="Courseregistration.courseId">
+                    <option>AI-123</option>
+                    <option>AR-456</option>
+                    <option>NN-789</option>
+                    <option>CS-101</option>
+                </select>
+                <small *ngIf="RegisterCourse_RF.get('courseId').hasError('required') && RegisterCourse_RF.get('courseId').touched">*This Field is Required</small>
+
             </div>
 
             <div class="col-md-4">
                 <label for="cname" class="form-label">Course Name</label>
-                <input type="text" class="form-control" formControlName="CourseName" id="cname" placeholder="e.g umer" [(ngModel)]="Courseregistration.courseName" >
+                <!-- <input type="text" class="form-control" formControlName="CourseName" id="cname" placeholder="e.g umer" [(ngModel)]="Courseregistration.courseName" >
                 <small *ngIf="RegisterCourse_RF.get('CourseName').hasError('required') && RegisterCourse_RF.get('CourseName').touched">*This Field is Required</small>
                 <small *ngIf="RegisterCourse_RF.get('CourseName').hasError('numericNotAllowed')">*No Numeric Allowed</small>
-                <small *ngIf="RegisterCourse_RF.get('CourseName').hasError('maxlength')">*Maximum 50 Letters Allowed</small>
+                <small *ngIf="RegisterCourse_RF.get('CourseName').hasError('maxlength')">*Maximum 50 Letters Allowed</small> -->
+                <select class="form-select" id="validationCustom09" formControlName="CourseName" [(ngModel)]="Courseregistration.courseName">
+                    <option>AI-123</option>
+                    <option>AR-456</option>
+                    <option>NN-789</option>
+                    <option>CS-101</option>
+                </select>
+                <small *ngIf="RegisterCourse_RF.get('CourseName').hasError('required') && RegisterCourse_RF.get('CourseName').touched">*This Field is Required</small>
+
             </div>
             
 
@@ -33,7 +47,7 @@
 
             <div class="col-md-3">
                 <label for="validationCustom09" class="form-label">Section</label>
-                <select class="form-select" id="validationCustom09" formControlName="section" name="Section" [(ngModel)]="Courseregistration.section">
+                <select class="form-select" id="validationCustom09" formControlName="section" [(ngModel)]="Courseregistration.section">
                     <option>Section A</option>
                     <option>Section B</option>
                     <option>Section C</option>

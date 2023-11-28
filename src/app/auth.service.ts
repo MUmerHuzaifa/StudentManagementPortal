@@ -148,7 +148,19 @@ export class AuthService {
     });
   }}
 
-  assignTaskToUser(task: any, userID: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/assignTask/${userID}`, task);
+  assignTaskToUser(Task: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/assignTask/`, Task).pipe(
+      map(response => {
+        if (response) {
+          console.log("Assigned task succesffuly")
+        }
+        return response;
+      })
+    );
   }
+
+
+  // registerCourse(userID:any,courseDetails:any):Observable<any>{
+  //   return this.http.post<any>(`${this.apiUrl}/courseregister/${userID}`,courseDetails);
+  // }
 }

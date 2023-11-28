@@ -35,6 +35,7 @@ export class SignupFormComponent implements OnInit {
 
   onCourseDetailsSubmit(){
     console.log(this.Courseregistration) 
+    this.onSubmit(this.Courseregistration);
   }
   clearForm(){
     this.Courseregistration.courseId='',
@@ -45,7 +46,9 @@ export class SignupFormComponent implements OnInit {
  
   ngOnInit(): void {
       this.RegisterCourse_RF=new FormGroup({
-        CourseName : new FormControl (null,[Validators.required,noNumericAllowed,Validators.maxLength(50)]),
+        // CourseName : new FormControl (null,[Validators.required,noNumericAllowed,Validators.maxLength(50)]),
+        courseId : new FormControl(null,[Validators.required]),
+        CourseName : new FormControl(null,[Validators.required]),
         CreditHour : new FormControl (null,[Validators.required,noSpaceAllowed,noAlphabetsAllowed,Validators.maxLength(1),lessThanOneNotAllowed]),
         section : new FormControl (null,[Validators.required]),
       })
@@ -57,8 +60,8 @@ export class SignupFormComponent implements OnInit {
  
   }
  
-  onSubmit(){
-    this.apiService.registerCourse(this. Courseregistration).subscribe(
+  onSubmit(Data:any){
+    this.apiService.registerCourse(Data).subscribe(
       response => {
         console.log('course registration successful!', response);
         alert("register sucessful")

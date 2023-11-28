@@ -18,7 +18,7 @@ import { Role_Admin } from './ProtectiveRouting/Admin-Guard.service';
 import { AuthorizedUsers } from './ProtectiveRouting/Authorization.service';
 import { Role_Student } from './ProtectiveRouting/Student-Guard.service';
 import { Role_ResetSuccessful } from './ProtectiveRouting/PassResetSucc.service';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { PagenotfoundComponent } from './PageNotFound404/pagenotfound.component';
 
 @NgModule({
   declarations: [
