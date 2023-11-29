@@ -53,9 +53,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     // Subscribe to route changes
-    this.userRoleService.getRememberMe().subscribe((value)=>{
-      console.log("rem me "+value)
-    })
+   
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         // Fetch user role from the server when the component initializes

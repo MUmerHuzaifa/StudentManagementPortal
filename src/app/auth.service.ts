@@ -11,7 +11,7 @@ export class AuthService {
 
   private apiUrl = 'http://localhost:8080/api';
   private loggedInUserId: number | null = null;
-  private sessionTimeout = 1 * 60 * 1000; // 30 minutes in milliseconds
+  private sessionTimeout = 15 * 60 * 1000; // 30 minutes in milliseconds
   private sessionTimer: any;
   private refreshing = false;
   rememCheck = '';
@@ -96,9 +96,7 @@ export class AuthService {
     } else {
       this.sessionTimer = setTimeout(() => {
         if (!this.refreshing) {
-          {
             this.logoutUser(); // Session timeout, logout user
-          }
         }
       }, this.sessionTimeout);
     }

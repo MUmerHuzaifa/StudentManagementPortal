@@ -17,6 +17,10 @@ export class AdminPannelComponent implements OnInit {
   allStudents: any[] = []; // Assuming this array is populated with user data
 
   constructor(private authService: AuthService, private userRoleServiceData: UserRoleService) {
+   
+  }
+  ngOnInit(): void {
+
     this.authService.getUserData().subscribe(
       allStudents => {
         const students: any = allStudents;
@@ -29,8 +33,6 @@ export class AdminPannelComponent implements OnInit {
         console.error('Error fetching all students:', error);
       }
     ); 
-  }
-  ngOnInit(): void {
 
     const userDetailsAsObject = localStorage.getItem('userDetails');
     if (userDetailsAsObject) {
@@ -46,10 +48,11 @@ export class AdminPannelComponent implements OnInit {
       });
     }
     // let allUsersDataT = this.userRoleServiceData.getAllUsersData();
+    
      
   }
 
-  allStudentsData(allStu:any){
+  allStudentsData(allStu){
     let user = allStu.users;
     // let name = user[6]
     this.allStudents=allStu.users;
@@ -58,9 +61,11 @@ export class AdminPannelComponent implements OnInit {
   onDelete(id:any){
 
     this.authService.deleteUserById(id).subscribe(response=>{
-      this.allStudents = this.allStudents.filter(user => user.id !== id);
-
+      this.allStudents = this.allStudents.filter(user => user._id != id);
       console.log("Deleted")
+      console.log(this.allStudents)
+      console.log(id)
+
     },
     error=>{
       console.error('Failed to delete', error);
