@@ -93,6 +93,8 @@
   width: 100%;
   overflow: hidden;
   background-color: rgb(215, 228, 228);
+  margin-top: 10px;
+  color: #721c24; /* Dark red text color */
 
 }
 .pic-Role {
@@ -202,4 +204,8 @@
 #course-status {
   height: 40px;
 
+}
+.notification-body {
+  margin-top: 10px;
+  color: #721c24; /* Dark red text color */
 }

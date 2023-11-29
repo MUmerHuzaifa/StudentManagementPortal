@@ -1,0 +1,26 @@
+.admin-page-container{
+    height: 100vh;
+    width: 90%;
+    background-color: rgb(255, 251, 251);
+    margin: 20px auto;
+    border-radius: 30px;
+}
+hr {
+    border: none;
+    /* width: 60%; */
+    border-top: 2px solid #0e0e0e;
+    /* Color and thickness */
+    margin: 20px 0;
+    /* Margin above and below the line */
+  }
+th{
+    text-align: center;
+    background-color: rgb(244, 248, 248); 
+}
+tr{
+    background-color: aqua;
+    vertical-align: middle;
+}
+td{
+    background-color: rgb(244, 248, 248);
+}

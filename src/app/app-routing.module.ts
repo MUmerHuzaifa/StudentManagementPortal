@@ -14,6 +14,7 @@ import { Role_Student } from './ProtectiveRouting/Student-Guard.service';
 import { Role_ResetSuccessful } from './ProtectiveRouting/PassResetSucc.service';
 import { NavbarComponent } from './Navbar/navbar.component';
 import { PagenotfoundComponent } from './PageNotFound404/pagenotfound.component';
+import { AllStudentsComponent } from './All-Students/all-students.component';
 // import { Any_User } from './ProtectiveRouting/AnyUserLoggedIn.service';
 
 
@@ -54,6 +55,8 @@ const routes: Routes = [
     path: '',
     redirectTo: '/login', 
     pathMatch: 'full', 
+    title : "Login"
+
   },
   {
     path: 'home',
@@ -76,7 +79,7 @@ const routes: Routes = [
     path: 'newpassword',
     component: CreateNewPasswordComponent,
     canActivate: [Role_ResetSuccessful],
-    title : "Create New Password"
+    title : "New Password"
   },
   {
     path: 'navbar',
@@ -84,9 +87,19 @@ const routes: Routes = [
     // canActivate : [Any_User]
   },
   {
+    path:'allstudents',
+    component: AllStudentsComponent,
+    canActivate:[Role_Admin],
+    title : "All-Students"
+
+  },
+  {
     path : '**',
     component : PagenotfoundComponent,
-  }
+    title : "404"
+
+  },
+  
 
 ];
 

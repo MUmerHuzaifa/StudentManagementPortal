@@ -23,26 +23,6 @@ button[type=action-button]{
     font-size: x-small;
     line-height:normal;   
 }
-hr {
-    border: none;
-    /* width: 60%; */
-    border-top: 2px solid #0e0e0e;
-    /* Color and thickness */
-    margin: 20px 0;
-    /* Margin above and below the line */
-  }
-th{
-    text-align: center;
-    background-color: rgb(244, 248, 248); 
-}
-tr{
-    background-color: aqua;
-    vertical-align: middle;
-}
-td{
-    background-color: rgb(244, 248, 248);
-}
-
 .admin-info {
     display: flex;
     flex-direction: row;

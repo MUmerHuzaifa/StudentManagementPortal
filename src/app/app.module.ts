@@ -19,6 +19,7 @@ import { AuthorizedUsers } from './ProtectiveRouting/Authorization.service';
 import { Role_Student } from './ProtectiveRouting/Student-Guard.service';
 import { Role_ResetSuccessful } from './ProtectiveRouting/PassResetSucc.service';
 import { PagenotfoundComponent } from './PageNotFound404/pagenotfound.component';
+import { AllStudentsComponent } from './All-Students/all-students.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { PagenotfoundComponent } from './PageNotFound404/pagenotfound.component'
     AssigntaskComponent,
     CreateNewPasswordComponent,
     PagenotfoundComponent,
+    AllStudentsComponent,
   ],
   imports: [
     BrowserModule,
