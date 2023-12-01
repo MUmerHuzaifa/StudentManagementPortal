@@ -1,0 +1,27 @@
+<div class="section-title">
+    <h4>Tasks Section</h4>
+</div>
+<div class="courses-info">
+         <div class="row" id="course-id">
+        <div class="col-md-12 course-div">
+            <table id="table-container" class="table">
+                <thead>
+                  <tr id="table-data">
+                    <th scope="col">Task ID</th>
+                    <th scope="col">Task Content</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+
+                <tbody class="table-group-divider"  *ngFor="let task of taskAssigned; let i = index">
+                      <!-- <th scope="row">1</th> -->
+                      <td><h4>{{i}}</h4></td>
+                      <td ><button class="btn btn-success">{{task}}</button></td>
+                      <td><button class="btn btn-danger">Completed</button></td>
+
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  

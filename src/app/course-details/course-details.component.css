@@ -1,0 +1,46 @@
+
+.course-body {
+    height: 30%;
+    width: auto;
+    background-color: rgb(255, 255, 255);
+  
+    border-radius: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .courses-info {
+    /* background-color: rgb(249, 246, 246); */
+    background-color: rgb(244, 248, 248);
+    height: 40vh;
+    width: auto;
+    padding: 30px;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  
+  .course-div {
+    border:1px solid rgb(205, 201, 201);
+    
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+  }
+  
+  #course-id {
+    height: 40px;
+  }
+  
+  #course-name {
+    height: 40px;
+  }
+  
+  #course-status {
+    height: 40px;
+  
+  }

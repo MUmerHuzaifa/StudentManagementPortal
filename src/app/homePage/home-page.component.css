@@ -1,0 +1,22 @@
+.home-container {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  flex-direction: column;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 20px;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+
+  /* margin: 0px auto; */
+
+}
+
+
+
+
+.notification-body {
+  margin-top: 10px;
+  color: #721c24; /* Dark red text color */
+}

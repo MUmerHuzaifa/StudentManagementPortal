@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
+import { TaskAssignmentDataService } from '../services/taskAssignment.service';
 
 interface User {
   userID: number;
@@ -25,32 +26,12 @@ export class AssigntaskComponent  implements OnInit {
 
   selectedUser: User | null = null;
 
-  constructor(private AuthService:AuthService){
+  constructor(private taskAssignmentService:TaskAssignmentDataService,private AuthService:AuthService){
    
   }
   ngOnInit() {
     this.getUserData();
   }
-
-
-  
-  // getUserData() {
-  //   this.AuthService.getUserData().subscribe(
-  //     (data: any) => {
-  //       if (data && data.status === true && Array.isArray(data.users)) {
-  //         this.users = data.users;
-  //         console.log('Users:', this.users);
-  //       } else {
-  //         console.error('Invalid user data received:', data);
-          
-  //       }
-  //     },
-  //     error => {
-  //       console.error('Error fetching user data:', error);
-        
-  //     }
-  //   );
-  // }
   getUserData() {
     this.AuthService.getUserData().subscribe(
       (data: any) => {
@@ -83,7 +64,7 @@ export class AssigntaskComponent  implements OnInit {
       console.log("Task is "+taskData.Task)
       console.log("Id is "+taskData.UserId)
 
-      this.AuthService.assignTaskToUser(taskData)
+      this.taskAssignmentService.assignTaskToUser(taskData)
       .subscribe(
         response => {
           // Handle the success response if needed

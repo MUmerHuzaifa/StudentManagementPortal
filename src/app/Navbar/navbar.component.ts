@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { UserRoleService } from '../user-role.service';
-import { AuthorizedUsers } from '../ProtectiveRouting/Authorization.service';
-
+import { RoleBasedUserDataService } from '../services/loggedInUserData.service';
+import { AuthorizedUsers } from '../protectiveRouting/authorization.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -15,7 +14,7 @@ export class NavbarComponent implements OnInit {
   GlobalRole: string = null;
 
   constructor(
-    private userRoleService: UserRoleService,
+    private userRoleService: RoleBasedUserDataService,
     private authorizedUsers: AuthorizedUsers,
     private router: Router
   ) {}

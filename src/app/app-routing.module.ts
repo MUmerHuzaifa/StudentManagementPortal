@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginFormComponent } from './Login-Form/login-form.component';
-import { SignupFormComponent } from './Register-Course/signup-form.component';
-import { AdminPannelComponent } from './Admin-Pannel/admin-pannel.component';
-import { ContactUsComponent } from './Contact-Us/contact-us.component';
-import { RegisterUserComponent } from './Signup-Form/register-user.component';
-import { AssigntaskComponent } from './assigntask/assigntask.component';
-import { ForgotPasswordComponent } from './Forgot-Password/forgot-password.component';
-import { CreateNewPasswordComponent } from './Create-New-Password/create-new-password.component';
-import { HomePageComponent } from './Home-Page/home-page.component';
-import { Role_Admin } from './ProtectiveRouting/Admin-Guard.service';
-import { Role_Student } from './ProtectiveRouting/Student-Guard.service';
-import { Role_ResetSuccessful } from './ProtectiveRouting/PassResetSucc.service';
-import { NavbarComponent } from './Navbar/navbar.component';
-import { PagenotfoundComponent } from './PageNotFound404/pagenotfound.component';
-import { AllStudentsComponent } from './All-Students/all-students.component';
+import { LoginFormComponent } from './loginForm/login-form.component';
+import { SignupFormComponent } from './registerCourse/signup-form.component';
+import { AdminPannelComponent } from './adminPannel/admin-pannel.component';
+import { RegisterUserComponent } from './registerUser/register-user.component';
+import { AssigntaskComponent } from './assignTask/assigntask.component';
+import { ForgotPasswordComponent } from './forgotPassword/forgot-password.component';
+import { CreateNewPasswordComponent } from './createNewPassword/create-new-password.component';
+import { HomePageComponent } from './homePage/home-page.component';
+import { Role_Admin } from './protectiveRouting/adminGuard';
+import { Role_Student } from './protectiveRouting/studentGuard.service';
+import { Role_ResetSuccessful } from './protectiveRouting/passwordReset';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PagenotfoundComponent } from './pageNotFound/pagenotfound.component';
+import { AllStudentsComponent } from './allStudents/all-students.component';
+import { ShowAllTasksComponent } from './showAllTasks/show-all-tasks.component';
 // import { Any_User } from './ProtectiveRouting/AnyUserLoggedIn.service';
 
 
@@ -55,8 +55,8 @@ const routes: Routes = [
     path: '',
     redirectTo: '/login', 
     pathMatch: 'full', 
-    title : "Login"
-
+    title : "Login",
+    
   },
   {
     path: 'home',
@@ -64,11 +64,6 @@ const routes: Routes = [
     canActivate: [Role_Student],
     title : "Student|Home"
   },
-  {
-    path: 'contact',
-    component: ContactUsComponent
-  },
-
   {
     path: 'forgot',
     component: ForgotPasswordComponent,
@@ -91,6 +86,13 @@ const routes: Routes = [
     component: AllStudentsComponent,
     canActivate:[Role_Admin],
     title : "All-Students"
+
+  },
+  {
+    path:'allTasks',
+    component: ShowAllTasksComponent,
+    canActivate:[Role_Admin],
+    title : "All-Tasks"
 
   },
   {

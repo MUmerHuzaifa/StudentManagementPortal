@@ -2,25 +2,29 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContainerComponent } from './Container/container.component';
-import { NavbarComponent } from './Navbar/navbar.component';
-import { SignupFormComponent } from './Register-Course/signup-form.component';
-import { LoginFormComponent } from './Login-Form/login-form.component';
+import { ContainerComponent } from './container/container.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SignupFormComponent } from './registerCourse/signup-form.component';
+import { LoginFormComponent } from './loginForm/login-form.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { ContactUsComponent } from './Contact-Us/contact-us.component';
-import { AdminPannelComponent } from './Admin-Pannel/admin-pannel.component';
+import { AdminPannelComponent } from './adminPannel/admin-pannel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RegisterUserComponent } from './Signup-Form/register-user.component';
-import { ForgotPasswordComponent } from './Forgot-Password/forgot-password.component';
-import { AssigntaskComponent } from './assigntask/assigntask.component';
-import { CreateNewPasswordComponent } from './Create-New-Password/create-new-password.component';
-import { Role_Admin } from './ProtectiveRouting/Admin-Guard.service';
-import { AuthorizedUsers } from './ProtectiveRouting/Authorization.service';
-import { Role_Student } from './ProtectiveRouting/Student-Guard.service';
-import { Role_ResetSuccessful } from './ProtectiveRouting/PassResetSucc.service';
-import { PagenotfoundComponent } from './PageNotFound404/pagenotfound.component';
-import { AllStudentsComponent } from './All-Students/all-students.component';
-
+import { RegisterUserComponent } from './registerUser/register-user.component';
+import { ForgotPasswordComponent } from './forgotPassword/forgot-password.component';
+import { AssigntaskComponent } from './assignTask/assigntask.component';
+import { CreateNewPasswordComponent } from './createNewPassword/create-new-password.component';
+import { Role_Admin } from './protectiveRouting/adminGuard';
+import { Role_Student } from './protectiveRouting/studentGuard.service';
+import { Role_ResetSuccessful } from './protectiveRouting/passwordReset';
+import { PagenotfoundComponent } from './pageNotFound/pagenotfound.component';
+import { AllStudentsComponent } from './allStudents/all-students.component';
+import { AuthorizedUsers } from './protectiveRouting/authorization.service';
+import { GreetingsComponent } from './sharedComponents/greetings/greetings.component';
+import { HomePageComponent } from './homePage/home-page.component';
+import { PersonalDetailsComponent } from './sharedComponents/personalDetails/personal-details.component';
+import { CourseDetailsComponent } from './course-details/course-details.component';
+import { ShowAssignedTasksComponent } from './showAssignedTasks/show-assigned-tasks.component';
+import { ShowAllTasksComponent } from './showAllTasks/show-all-tasks.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +32,6 @@ import { AllStudentsComponent } from './All-Students/all-students.component';
     NavbarComponent,
     SignupFormComponent,
     LoginFormComponent,
-    ContactUsComponent,
     AdminPannelComponent,
     RegisterUserComponent,
     ForgotPasswordComponent,
@@ -36,6 +39,12 @@ import { AllStudentsComponent } from './All-Students/all-students.component';
     CreateNewPasswordComponent,
     PagenotfoundComponent,
     AllStudentsComponent,
+    GreetingsComponent,
+    HomePageComponent,
+    PersonalDetailsComponent,
+    CourseDetailsComponent,
+    ShowAssignedTasksComponent,
+    ShowAllTasksComponent,
   ],
   imports: [
     BrowserModule,
