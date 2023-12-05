@@ -13,20 +13,24 @@ export class ShowAssignedTasksComponent implements OnInit {
   taskAssigned:any []=[];
 
   ngOnInit(): void {
-    this.userId = this.authService.getLoggedInUserId();
-     this.taskAssignmentDataService.getTasksForUser(this.userId).subscribe((task) => {
+         this.taskAssignmentDataService.getTasksForUser(localStorage.getItem('userId')).subscribe((task) => {
     this.showTask(task);
   });
           
   }
     constructor(
       private authService: AuthService,
-      private taskAssignmentDataService:TaskAssignmentDataService
+      private taskAssignmentDataService:TaskAssignmentDataService,
+      private roleBasedUserDataService:RoleBasedUserDataService
     ) {}
 
   showTask(task: any) {
     this.taskAssigned = task.map(item => item.Task);
     console.log(this.taskAssigned);
+  }
+
+  taskResonse(){
+    console.log("Student Responded From Student Portal")
   }
 
 

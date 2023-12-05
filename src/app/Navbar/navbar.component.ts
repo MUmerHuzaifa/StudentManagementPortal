@@ -30,7 +30,8 @@ export class NavbarComponent implements OnInit {
       localStorage.removeItem('allStudents');
       localStorage.removeItem('switch_text_login');
       localStorage.removeItem('switch_text_logout');
-      localStorage.removeItem('rememberMe')
+      localStorage.removeItem('rememberMe');
+      localStorage.removeItem('userId');
 
     } else {
       this.switch_text = 'Logout';
@@ -64,7 +65,8 @@ export class NavbarComponent implements OnInit {
     });
   }
   
-  private handleUserRole(userRole: string | null): void {
+  handleUserRole(userRole: any){
+    console.log("User role from navbar component is ",userRole)
     this.GlobalRole = userRole;
 
     // Based on the user role, you may want to adjust the component's behavior

@@ -11,7 +11,7 @@ export class AuthService {
 
   private apiUrl = 'http://localhost:8080/api';
   private loggedInUserId: number | null = null;
-  private sessionTimeout = 15 * 60 * 1000; // 30 minutes in milliseconds
+  private sessionTimeout = 0.2 * 60 * 1000; // 30 minutes in milliseconds
   private sessionTimer: any;
   private refreshing = false;
   rememCheck = '';
@@ -44,6 +44,8 @@ export class AuthService {
       map(response => {
         if (response && response.userId) {
           this.loggedInUserId = response.userId;
+          localStorage.setItem("userId", response.userId);
+          console.log("When logged in "+this.loggedInUserId)
           this.startSessionTimer();
         }
         return response;
@@ -57,8 +59,8 @@ export class AuthService {
   }
 
   getUserDataBasedOnRole(): Observable<any[]> {
-    const currentUserIdAcquired = this.getLoggedInUserId();
-    console.log("current user id is = " + currentUserIdAcquired);
+    let currentUserIdAcquired = localStorage.getItem('userId')
+    console.log("current user id is in service for user data = " + currentUserIdAcquired);
     return this.http.get<any[]>(`${this.apiUrl}/${currentUserIdAcquired}`);
   }
 
@@ -115,6 +117,8 @@ export class AuthService {
     localStorage.removeItem('allStudents');
     localStorage.removeItem('switch_text_login');
     localStorage.removeItem('switch_text_logout');
+    localStorage.removeItem('userId');
+
 
     // Navigate to the login page
     // You may need to inject the Router service to navigate
@@ -134,7 +138,7 @@ export class AuthService {
         this.refreshing = true; // Set the refreshing flag when the page is being refreshed
       } else {
         // if(this.rememCheck=='null'){
-        this.logoutUser(); // Browser close event, logout user
+        // this.logoutUser(); // Browser close event, logout user
         // }
       }
       // Check if the event is a page refresh

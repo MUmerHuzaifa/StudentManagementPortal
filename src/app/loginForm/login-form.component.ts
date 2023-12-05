@@ -45,6 +45,7 @@ onFormSubmitted(){
 this.authService.loginUser(this.registration).subscribe(
   response => {
     console.log('login successful!', response);
+
     // alert("login sucessful")
     this.loginPassed=false;
     this.loginFailed=true;
@@ -61,20 +62,7 @@ this.authService.loginUser(this.registration).subscribe(
         } else if(role=="Admin"){
           this.router.navigate(['admin'])
         }
-        //getting logged user detail only
-        this.authService.getUserDataBasedOnRole().subscribe(
-          details => {
-            const userDetails: any = details;
-            const userDetailsString = JSON.stringify(userDetails);
-            this.roleBasedUserDataService.setUserDetails(userDetails);
-            // localStorage.setItem("userDetails", userDetailsString);
-          },
-          error => {
-            console.error('Error fetching user details:', error);
-          }
-        );
-          // getting all users data 
-        
+       
 
         localStorage.setItem('switch_text_login','Login');
         localStorage.setItem('switch_text_logout','Logout');

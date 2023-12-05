@@ -16,8 +16,8 @@ export class AllStudentsComponent implements OnInit {
 
     this.authService.getUserData().subscribe(
       allStudents => {
-        const students: any = allStudents;
-        let userDetailsString = JSON.stringify(students);
+        // const students: any = allStudents;
+        // let userDetailsString = JSON.stringify(students);
         this.allStudentsData(allStudents);
         // console.log(userDetailsString)
 
@@ -34,6 +34,7 @@ export class AllStudentsComponent implements OnInit {
       this.allStudents=allStu.users;
       console.log(user)
     }
+
     onDelete(id:any){
   
       this.authService.deleteUserById(id).subscribe(response=>{

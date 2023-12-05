@@ -4,7 +4,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +16,7 @@ export class RoleBasedUserDataService {
 
   }
 
-  private apiUrl = 'http://localhost:8080/api';
-  private loggedInUserId: number | null = null;
+  loggedInUserId: Subject<any> = new Subject<any>();
 
   private userRoleSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private userDetails = new BehaviorSubject<any>(null);
@@ -34,19 +33,21 @@ export class RoleBasedUserDataService {
     return this.userRoleSubject.asObservable();
   }
 
-  getUserData():Observable<object>{
+  getUserData():Observable<any>{
+    console.log("User Data from Service (RoleBasedDataService)",this.userDetails.asObservable())
     return this.userDetails.asObservable();
   }
 
   setUserDetails(details:any){
     this.userDetails.next(details)
+
   }
 
   setRememberMe(details:any){
     this.rememberMeCheck.next(details)
   }
 
-  getRememberMe():Observable<object>{
+  getRememberMe():Observable<any>{
     return this.rememberMeCheck.asObservable();
   }
 
@@ -58,6 +59,13 @@ export class RoleBasedUserDataService {
     return this.allUsersData.asObservable();
   }
 
+  setLoggedInUserId(userId:any){
+    this.loggedInUserId.next(userId)
+  }
+
+  getLoggedInUserId():Observable<any>{
+    return this.loggedInUserId.asObservable();
+  }
 
 
 
