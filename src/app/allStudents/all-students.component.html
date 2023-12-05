@@ -1,4 +1,7 @@
 <div class="admin-page-container">
+  <!-- <div class="custom-filters">
+    
+  </div>  -->
 <div class="admin-action-area">
     <table id="table-container" class="table">
       <thead>
@@ -10,7 +13,27 @@
           <th scope="col">Actions</th>
 
         </tr>
+        
       </thead>
+      <tr id="table-data">
+        <th scope="col">Filter</th>
+        <th scope="col">Filter</th>
+        <th scope="col">Filter</th>
+        <th scope="col">
+          <select class="form-select" id="validationCustom09" [(ngModel)]="selectedSection" (change)="onSectionChange($event)">
+            <option value="" disabled selected>Select a section</option>
+            <option value="All">All</option>
+            <option value="admin">admin</option>
+            <option value="student">student</option>
+          </select>
+        <!-- <small *ngIf="RegisterCourse_RF.get('section').hasError('required') && RegisterCourse_RF.get('section').touched">*This Field is Required</small> -->
+
+
+        </th>
+        <th scope="col">Filter</th>
+      
+
+      </tr>
       <tbody class="table-group-divider">
         <tr id="table-data" *ngFor="let item of allStudents">
           <!-- <th scope="row">1</th> -->

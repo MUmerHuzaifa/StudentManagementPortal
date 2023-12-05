@@ -7,8 +7,10 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./all-students.component.css']
 })
 export class AllStudentsComponent implements OnInit {
-  allStudents: any[] = []; // Assuming this array is populated with user data
+  selectedSection:string='All'
 
+  allStudents: any[] = []; // Assuming this array is populated with user data
+  filteredStudents:any [] = [];
   constructor(private authService: AuthService) {
    
   }
@@ -27,11 +29,24 @@ export class AllStudentsComponent implements OnInit {
       }
     ); 
   }
+  onSectionChange(event:any){
+    this.selectedSection = event.target.value;
+    if(this.selectedSection == "All"){
+      this.allStudents = this.filteredStudents.filter(user => user.role!='All');
+    }
+    else{
+      this.allStudents = this.filteredStudents.filter(user => user.role.toLowerCase() === this.selectedSection.toLowerCase());
+    }
+    // this.allStudentsData(this.allStudents);
+    console.log(this.selectedSection)
+
+  }
 
     allStudentsData(allStu){
       let user = allStu.users;
       // let name = user[6]
       this.allStudents=allStu.users;
+      this.filteredStudents=allStu.users;
       console.log(user)
     }
 
