@@ -11,7 +11,6 @@
           <th scope="col">Email</th>
           <th scope="col">Role</th>
           <th scope="col">Actions</th>
-
         </tr>
         
       </thead>
@@ -23,15 +22,12 @@
           <select class="form-select" id="validationCustom09" [(ngModel)]="selectedSection" (change)="onSectionChange($event)">
             <option value="" disabled selected>Select a section</option>
             <option value="All">All</option>
-            <option value="admin">admin</option>
-            <option value="student">student</option>
+            <option value="admin">Admin</option>
+            <option value="student">Student</option>
           </select>
         <!-- <small *ngIf="RegisterCourse_RF.get('section').hasError('required') && RegisterCourse_RF.get('section').touched">*This Field is Required</small> -->
-
-
         </th>
         <th scope="col">Filter</th>
-      
 
       </tr>
       <tbody class="table-group-divider">

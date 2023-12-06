@@ -1,0 +1,17 @@
+<div class="section-title">
+    <h4>Course Details</h4>
+</div>
+<div class="courses-info">
+    <div class="course-body">
+        <div id="course-id" class="col-md-2 course-div-headings">Course Id </div>
+        <div id="course-name" class="col-md-6 course-div-headings"> Course Name</div>
+        <div id="course-status" class="col-md-2 course-div-headings">Credit Hours</div>
+        <div id="course-status" class="col-md-2 course-div-headings">Course Status</div>
+    </div>
+    <div class="course-body" *ngFor="let obj of myCourses">
+        <div id="course-id" class="col-md-2 course-div">{{obj.courseId}}</div>
+        <div id="course-name" class="col-md-6 course-div">{{obj.coursename || obj.courseName}}</div>
+        <div id="course-name" class="col-md-2 course-div">{{obj.creditHours}}</div>
+        <div id="course-status" class="col-md-2 course-div">{{obj.status}}</div>
+    </div>
+</div>

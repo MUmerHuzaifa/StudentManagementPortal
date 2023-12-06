@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PagenotfoundComponent } from './pageNotFound/pagenotfound.component';
 import { AllStudentsComponent } from './allStudents/all-students.component';
 import { ShowAllTasksComponent } from './showAllTasks/show-all-tasks.component';
+import { LoginGuard } from './protectiveRouting/authLoginGuard';
 // import { Any_User } from './ProtectiveRouting/AnyUserLoggedIn.service';
 
 
@@ -51,13 +52,18 @@ const routes: Routes = [
     canActivate: [Role_Admin],
     title : "Signup"
   },
-  {
-    path: '',
-    redirectTo: '/login', 
-    pathMatch: 'full', 
-    title : "Login",
+  // {
+  //   path: 'login',
+  //   component: HomePageComponent,
+  //   canActivate: [LoginGuard], // Use the AuthGuard for protecting this route
+  // },
+  // {
+  //   path: '',
+  //   redirectTo: '/login', 
+  //   pathMatch: 'full', 
+  //   title : "Login",
     
-  },
+  // },
   {
     path: 'home',
     component: HomePageComponent,

@@ -1,7 +1,9 @@
 <div class="container wrapper">
 
     <h1>Assign a Task</h1>
-  
+    <h6 [hidden]="taskAssignment" id="registerLink" class="link-success"> Assigned Successfully</h6>
+    <h6 [hidden]="Failed" id="registerLink" class="link-danger"> Failed To Assign Task</h6>
+
     <hr>
     
     <form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm">

@@ -1,6 +1,6 @@
 
 .course-body {
-    height: 30%;
+    height: auto;
     width: auto;
     background-color: rgb(255, 255, 255);
   
@@ -15,21 +15,30 @@
   .courses-info {
     /* background-color: rgb(249, 246, 246); */
     background-color: rgb(244, 248, 248);
-    height: 40vh;
+    height: auto;
     width: auto;
     padding: 30px;
     overflow: hidden;
     border-radius: 5px;
   }
   
-  .course-div {
+  .course-div-headings {
     border:1px solid rgb(205, 201, 201);
-    
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: larger;
+    /* font-weight: 400px; */
+  }
+
+  .course-div {
+    border:1px solid rgb(205, 201, 201);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: medium;
   }
   
   #course-id {

@@ -20,7 +20,8 @@ interface Task {
 export class AssigntaskComponent  implements OnInit {
 
   taskArray = [{ taskName: 'work hard', assignedTo: null }];
-
+  taskAssignment=true;
+  Failed=true;
 
   users: User[] = [];
 
@@ -36,7 +37,9 @@ export class AssigntaskComponent  implements OnInit {
     this.AuthService.getUserData().subscribe(
       (data: any) => {
         if (data && data.status === true && Array.isArray(data.users)) {
-          this.users = data.users.map(user => {
+          this.users = data.users
+          .filter(user => user.role === 'Student')
+          .map(user => {
             return {
               userID: user._id, // Assign the user ID if it's needed
               name: user.username // Extract and assign the username property
@@ -68,11 +71,18 @@ export class AssigntaskComponent  implements OnInit {
       .subscribe(
         response => {
           // Handle the success response if needed
+          this.taskAssignment=false;
+          this.Failed=true;
           console.log('Task assigned successfully:', response);
         },
         error => {
           // Handle the error response if needed
           console.error('Error assigning task:', error);
+          setTimeout(() => {
+            this.taskAssignment = false;
+          }, 3000);
+          this.taskAssignment = true;
+          this.Failed=false;
         }
       );
       // Call another function with the task data

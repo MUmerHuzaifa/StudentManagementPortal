@@ -60,6 +60,28 @@ export class AuthorizedUsers {
     return this.newPassword;
   }
 
+  isLoggedInVar = false; // Example variable, replace with your actual authentication logic
+
+  isLoggedIn(): boolean {
+    if(localStorage.getItem('currentUser')=='Admin'||localStorage.getItem('currentUser')=='Student'){
+      this.isLoggedInVar = true;
+    }
+    else{
+      this.isLoggedInVar = false;
+    }
+    return this.isLoggedInVar;
+  }
+
+  login(): void {
+    // Your login logic, set isLoggedInVar to true, etc.
+    this.isLoggedInVar = true;
+  }
+
+  logout(): void {
+    // Your logout logic, set isLoggedInVar to false, etc.
+    this.isLoggedInVar = false;
+  }
+
   // IsAnyUserLoggedIn(){
   //   return this.loggedIn;
   // }

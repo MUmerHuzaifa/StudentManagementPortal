@@ -22,9 +22,10 @@ import { AuthorizedUsers } from './protectiveRouting/authorization.service';
 import { GreetingsComponent } from './sharedComponents/greetings/greetings.component';
 import { HomePageComponent } from './homePage/home-page.component';
 import { PersonalDetailsComponent } from './sharedComponents/personalDetails/personal-details.component';
-import { CourseDetailsComponent } from './course-details/course-details.component';
+import { CourseDetailsComponent } from './courseDetails/course-details.component';
 import { ShowAssignedTasksComponent } from './showAssignedTasks/show-assigned-tasks.component';
 import { ShowAllTasksComponent } from './showAllTasks/show-all-tasks.component';
+import { ShowAssignedCoursesComponent } from './showAssignedCourses/show-assigned-courses.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { ShowAllTasksComponent } from './showAllTasks/show-all-tasks.component';
     CourseDetailsComponent,
     ShowAssignedTasksComponent,
     ShowAllTasksComponent,
+    ShowAssignedCoursesComponent,
   ],
   imports: [
     BrowserModule,
