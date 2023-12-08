@@ -1,5 +1,4 @@
 <div class="form-container">
-
     <div class="form-body">
         <div class="form-title">
             <h2 id="registration">Course Registration</h2>
@@ -9,10 +8,10 @@
             <div class="col-md-4">
                 <label for="validationCustom01" class="form-label">Course Id</label>
                 <select class="form-select" id="validationCustom09" formControlName="courseId" name="Section" [(ngModel)]="Courseregistration.courseId">
-                    <option>AI-123</option>
-                    <option>AR-456</option>
-                    <option>NN-789</option>
-                    <option>CS-101</option>
+                    <option>DIP-123</option>
+                    <option>AI-456</option>
+                    <option>QP-789</option>
+                    <option>EP-101</option>
                 </select>
                 <small *ngIf="RegisterCourse_RF.get('courseId').hasError('required') && RegisterCourse_RF.get('courseId').touched">*This Field is Required</small>
 
@@ -25,10 +24,10 @@
                 <small *ngIf="RegisterCourse_RF.get('CourseName').hasError('numericNotAllowed')">*No Numeric Allowed</small>
                 <small *ngIf="RegisterCourse_RF.get('CourseName').hasError('maxlength')">*Maximum 50 Letters Allowed</small> -->
                 <select class="form-select" id="validationCustom09" formControlName="CourseName" [(ngModel)]="Courseregistration.courseName">
-                    <option>AI-123</option>
-                    <option>AR-456</option>
-                    <option>NN-789</option>
-                    <option>CS-101</option>
+                    <option>Digital Image Processing</option>
+                    <option>Artificial Intelligence</option>
+                    <option>Quantum Physics</option>
+                    <option>Engineering Professionalism</option>
                 </select>
                 <small *ngIf="RegisterCourse_RF.get('CourseName').hasError('required') && RegisterCourse_RF.get('CourseName').touched">*This Field is Required</small>
 

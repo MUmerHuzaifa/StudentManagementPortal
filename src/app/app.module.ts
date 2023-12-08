@@ -26,6 +26,10 @@ import { CourseDetailsComponent } from './courseDetails/course-details.component
 import { ShowAssignedTasksComponent } from './showAssignedTasks/show-assigned-tasks.component';
 import { ShowAllTasksComponent } from './showAllTasks/show-all-tasks.component';
 import { ShowAssignedCoursesComponent } from './showAssignedCourses/show-assigned-courses.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PopupComponent } from './popup/popup.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +51,7 @@ import { ShowAssignedCoursesComponent } from './showAssignedCourses/show-assigne
     ShowAssignedTasksComponent,
     ShowAllTasksComponent,
     ShowAssignedCoursesComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +59,8 @@ import { ShowAssignedCoursesComponent } from './showAssignedCourses/show-assigne
     FormsModule,
     ReactiveFormsModule,
      HttpClientModule,
+     BrowserAnimationsModule,
+     MatDialogModule,
     
   ],
   providers: [Role_Admin,Role_Student,Role_ResetSuccessful,AuthorizedUsers],

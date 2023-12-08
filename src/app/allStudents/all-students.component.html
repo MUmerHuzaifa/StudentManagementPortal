@@ -19,7 +19,7 @@
         <th scope="col">Filter</th>
         <th scope="col">Filter</th>
         <th scope="col">
-          <select class="form-select" id="validationCustom09" [(ngModel)]="selectedSection" (change)="onSectionChange($event)">
+          <select class="form-select" id="validationCustom09" [(ngModel)]="selectedSection" (change)="onRoleChange($event)">
             <option value="" disabled selected>Select a section</option>
             <option value="All">All</option>
             <option value="admin">Admin</option>
@@ -41,8 +41,8 @@
           <td style="padding: 10px;margin-left: 10px;">
 
             <!-- <button class="btn btn-primary" type="button" routerLink="/assigntask">Task</button> -->
-
-            <button class="btn btn-primary" type="button" routerLink="/register">Edit</button>
+            <!-- routerLink="/register" -->
+            <button class="btn btn-primary" type="button" (click)="onEditUser(item)"  >Edit</button>
             <button class="btn btn-danger" type="button" (click)="onDelete(item._id)">Delete</button>
 
           </td>

@@ -8,11 +8,12 @@ import { CourseDataService } from '../services/courseData.service';
 })
 export class CourseDetailsComponent implements OnInit {
   myCourses:any[];
+  filteredCourses:any[];
 
   ngOnInit(): void {
     let userId = localStorage.getItem('userId')
     this.courseDataService.getAllCoursesAssignedToUser(userId).subscribe(courseDetails=>{
-      this.showCoursesToStudent(courseDetails);
+      this.showCoursesToStudent(courseDetails,userId);
     })
       
   }
@@ -21,9 +22,11 @@ export class CourseDetailsComponent implements OnInit {
 
   }
 
-showCoursesToStudent(courses:any){
+showCoursesToStudent(courses:any,userId:any){
   this.myCourses=courses.success;
-  console.log(this.myCourses)
+  // To filter courses on id basic of logged in user
+  // this.myCourses=courses.success.filteredCourses.filter(course => course._id == userId);
+  console.log(this.filteredCourses)
 
 }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { PopupComponent } from '../popup/popup.component';
 
 @Component({
   selector: 'app-all-students',
@@ -11,7 +13,7 @@ export class AllStudentsComponent implements OnInit {
 
   allStudents: any[] = []; // Assuming this array is populated with user data
   filteredStudents:any [] = [];
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,private popUpModel:MatDialog) {
    
   }
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class AllStudentsComponent implements OnInit {
       }
     ); 
   }
-  onSectionChange(event:any){
+  onRoleChange(event:any){
     this.selectedSection = event.target.value;
     if(this.selectedSection == "All"){
       this.allStudents = this.filteredStudents.filter(user => user.role!='All');
@@ -63,6 +65,14 @@ export class AllStudentsComponent implements OnInit {
         console.error('Failed to delete', error);
       })
   
+    }
+
+    onEditUser(myData:any){
+      const config: MatDialogConfig = {
+        data: myData
+      }
+      this.popUpModel.open(PopupComponent,config)
+      console.log("User is clicked with "+config)
     }
 
 }

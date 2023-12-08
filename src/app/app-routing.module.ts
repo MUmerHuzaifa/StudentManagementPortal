@@ -57,13 +57,13 @@ const routes: Routes = [
   //   component: HomePageComponent,
   //   canActivate: [LoginGuard], // Use the AuthGuard for protecting this route
   // },
-  // {
-  //   path: '',
-  //   redirectTo: '/login', 
-  //   pathMatch: 'full', 
-  //   title : "Login",
+  {
+    path: '',
+    redirectTo: '/login', 
+    pathMatch: 'full', 
+    title : "Login",
     
-  // },
+  },
   {
     path: 'home',
     component: HomePageComponent,

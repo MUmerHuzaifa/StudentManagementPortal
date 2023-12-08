@@ -16,22 +16,17 @@ export class AuthService {
   private refreshing = false;
   rememCheck = '';
 
-
-
   constructor(private http: HttpClient) {
     // Start listening for the browser close event when the service is instantiated
-
     this.initBrowserCloseListener();
-
-
   }
 
   registerUser(data: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/register`, data);
   }
 
-  updateUserById(data: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/userId`, data);
+  updateUserById(userId:any,data: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/updateUser/${userId}`, data);
   }
 
   deleteUserById(userId: any): Observable<any> {
@@ -83,8 +78,6 @@ export class AuthService {
     return this.http.get<any[]>(`${this.apiUrl}/getusers/`);
   }
 
-
-
   private startSessionTimer(): void {
     console.log(this.rememCheck)
     this.rememCheck = localStorage.getItem("rememberMe")
@@ -100,7 +93,6 @@ export class AuthService {
     }
 
   }
-
 
   private resetSessionTimer(): void {
     clearTimeout(this.sessionTimer);
@@ -118,7 +110,6 @@ export class AuthService {
     localStorage.removeItem('switch_text_login');
     localStorage.removeItem('switch_text_logout');
     localStorage.removeItem('userId');
-
 
     // Navigate to the login page
     // You may need to inject the Router service to navigate
