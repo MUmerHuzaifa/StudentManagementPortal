@@ -25,13 +25,6 @@ import { lessThanOneNotAllowed, noAlphabetsAllowed, noFloatingNumbersAllowed, no
 })
 export class SignupFormComponent implements OnInit {
 
-  courseCodes = ['DIP-111', 'AI-222', 'QP-333', 'EP-444'];
-  courseNames = ['Digital Image Processing', 'Artificial Intelligence', 'Quantum Physics', 'Engineering Professionalism'];
-
-  selectedCourseCode: string;
-  selectedCourseName: string;
-
-
   RegisterCourse_RF: FormGroup;
 
   Courseregistration = {
@@ -41,15 +34,6 @@ export class SignupFormComponent implements OnInit {
     section: '',
   }
 
-  onCourseNameChange() {
-    // Find the index of the selected course name
-    const index = this.courseNames.indexOf(this.selectedCourseName);
-  
-    // Set the corresponding course code based on the index
-    if (index !== -1) {
-      this.selectedCourseCode = this.courseCodes[index];
-    }
-  }
 
   onCourseDetailsSubmit() {
     console.log(this.Courseregistration)
